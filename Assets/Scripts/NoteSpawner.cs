@@ -10,8 +10,14 @@ public class NoteSpawner : MonoBehaviour
 
     readonly private int numLanes = 4;
     private Vector2[] spawnPositions;
+    private float noteVelocity;
+
+    readonly float secondsTillHit = 2;
     void Start()
     {
+        float height = gameCamera.ViewportToWorldPoint(new Vector2(0, 1)).y - gameCamera.ViewportToWorldPoint(new Vector2(0, 0)).y;
+        noteVelocity = height / secondsTillHit;
+        //Debug.Log(velocity.ToString());
         spawnPositions = new Vector2[numLanes];
         for (int i = 0; i < numLanes; i++) {
             float spawnX = ((float)(2 * i + 1)/(float)(2 * numLanes));
@@ -20,7 +26,9 @@ public class NoteSpawner : MonoBehaviour
             spawnPositions[i] = gameCamera.ViewportToWorldPoint(positionVector);
         }
         foreach (Vector2 spawnPosition in spawnPositions) {
-            Instantiate(note).transform.position = spawnPosition;
+            GameObject justSpawnedNote = Instantiate(note);
+            justSpawnedNote.transform.position = spawnPosition;
+            justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
         }
     }
 
@@ -34,4 +42,8 @@ public class NoteSpawner : MonoBehaviour
 
     }
     //functi
+
+    //public spawnNote(GameObject note, int lane) {
+    //    //code to spawn it
+    //}
 }
