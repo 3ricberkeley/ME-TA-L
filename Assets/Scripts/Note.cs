@@ -11,8 +11,8 @@ public class Note : MonoBehaviour
     #endregion
 
     #region Note_functions
-    // Set the variables of this note
-    public void SetNoteVars(float t, int l, string ty)
+    // Note Constructor
+    public Note(float t, int l, string ty)
     {
         timePos = t;
         lane = l;
