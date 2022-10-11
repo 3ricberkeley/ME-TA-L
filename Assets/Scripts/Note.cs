@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Note : MonoBehaviour
-{
+public class Note {
     #region Note_variables
     // Timestamp the note is at
     float timePos;
@@ -38,20 +37,6 @@ public class Note : MonoBehaviour
     public string GetNoteType()
     {
         return type;
-    }
-    #endregion
-
-    #region Unity_functions
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
     #endregion
 }
