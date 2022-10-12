@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class Song : MonoBehaviour
@@ -52,13 +54,16 @@ public class Song : MonoBehaviour
         // Generate the song
         // Create an array of timestamps and iterate through it while calling PlaceNote(?)
         // Can use a different data structure so you could add values out-of-order and sort it later
-        float[] testTimes = {1.5f, 4.0f, 7.0f};
-        int[] testLanes = {0, 1, 2};
-        string[] testTypes = {"normal", "normal", "normal"};
-        for (int i = 0; i < testTimes.Length; i++)
-        {
-            PlaceNote(testTimes[i], testLanes[i], testTypes[i]);
-        }
+
+        //float[] testTimes = {1.5f, 4.0f, 7.0f};
+        //int[] testLanes = {0, 1, 2};
+        //string[] testTypes = {"normal", "normal", "normal"};
+        //for (int i = 0; i < testTimes.Length; i++)
+        //{
+        //    PlaceNote(testTimes[i], testLanes[i], testTypes[i]);
+        //}
+
+        mvpTest();
 
         // Start the song
         elaspedTime = (float)AudioSettings.dspTime;
@@ -73,9 +78,21 @@ public class Song : MonoBehaviour
         // Beats since the song started
         songPosInBeats = songPos / secPerBeat;
     }
-
     public float getSongPos() {
         return songPos;
     }
     #endregion
+
+    private void mvpTest() {
+        float[] testTimes = Assets.Scripts.SongLoader.getOnlyTimestampsMPV()[0];
+        int[] testLanes = new int[testTimes.Length];
+        string[] testTypes = new string[testTimes.Length];
+        for (int i = 0; i < testLanes.Length; i++) {
+            testLanes[i] = 1;
+            testTypes[i] = "normal";
+        }
+        for (int i = 0; i < testTimes.Length; i++) {
+            PlaceNote(testTimes[i], testLanes[i], testTypes[i]);
+        }
+    }
 }
