@@ -9,28 +9,40 @@ public class NoteSpawner : MonoBehaviour {
 
     // Start is called before the first frame update
     public Camera gameCamera;
-    public GameObject note;
+    public GameObject notePrefab;
+    public GameObject songObject;
 
     readonly private int numLanes = 4;
     private Vector2[] spawnPositions;
     private float noteVelocity;
 
-    readonly float secondsTillHit = 2;
+    public float secondsTillHit = 2;
+
+    private Song song;
+    private Queue<Note> noteQueue;
+
+
+    /** 
+     * Initializes constants based on camera height. Then, checks if the song has finished initializing.
+     */
     void Start() {
         setupCameraHeight();
         setupLanePositions();
-        testSpawnInEachLane();
+        setupNoteQueue();
     }
 
-    // Update is called once per frame
+    /**
+     * Update is called every frame. First we check if the song has finished initializing the note queue, and then afterwards,
+     * we spawn notes off of the queue until the timestamp for the next note has not been reached yet.
+     */
     void Update() {
-        //check if the next note needs to be dropped
-        //if so drop the note
-        //instantiate note
-        //stuff
-
+        if (noteQueue == null) noteQueue = song.GetNoteQueue();
+        if (noteQueue == null) return;
+        float songPos = song.getSongPos();
+        while (noteQueue.Count > 0 && songPos >= noteQueue.Peek().GetTimePos() - secondsTillHit) {
+            spawnNote(noteQueue.Dequeue());
+        }
     }
-
 
     /**
      * this just sets up the speed of the note relative to camera height
@@ -51,13 +63,23 @@ public class NoteSpawner : MonoBehaviour {
             spawnPositions[i] = gameCamera.ViewportToWorldPoint(positionVector);
         }
     }
+    private void setupNoteQueue() {
+        song = songObject.GetComponent<Song>();
+        noteQueue = song.GetNoteQueue();
+    }
 
     //this just spawns one in each lane
     private void testSpawnInEachLane() {
         foreach (Vector2 spawnPosition in spawnPositions) {
-            GameObject justSpawnedNote = Instantiate(note);
+            GameObject justSpawnedNote = Instantiate(notePrefab);
             justSpawnedNote.transform.position = spawnPosition;
             justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
         }
     }
-}
+
+    public void spawnNote(Note note) {
+        GameObject justSpawnedNote = Instantiate(notePrefab);
+        justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
+        justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
+    }
+}   
