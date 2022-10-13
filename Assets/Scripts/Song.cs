@@ -88,7 +88,7 @@ public class Song : MonoBehaviour
         int[] testLanes = new int[testTimes.Length];
         string[] testTypes = new string[testTimes.Length];
         for (int i = 0; i < testLanes.Length; i++) {
-            testLanes[i] = 1;
+            testLanes[i] = 0;                   // FOR NOW SINCE WE DON'T HAVE LANE SPECIFICATIONS THIS LINE IS JUST GOING TO TEMPORARILY MAKE ALL THE NOTES SPAWN IN THAT LANE
             testTypes[i] = "normal";
         }
         for (int i = 0; i < testTimes.Length; i++) {
