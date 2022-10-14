@@ -42,6 +42,7 @@ public class NoteSpawner : MonoBehaviour {
         float songPos = song.getSongPos();
         while (noteQueue.Count > 0 && songPos >= noteQueue.Peek().GetTimePos() - secondsTillHit) {
             spawnNote(noteQueue.Dequeue());
+            Debug.Log("time is " + Time.time.ToString() + ", seconds till hit is " + secondsTillHit.ToString() + ", songPos is" + songPos.ToString());
         }
     }
 
@@ -49,9 +50,9 @@ public class NoteSpawner : MonoBehaviour {
      * this just sets up the speed of the note relative to camera height
      */
     private void setupCameraHeight() {
-        //float height = gameCamera.ViewportToWorldPoint(new Vector2(0, 1)).y - gameCamera.ViewportToWorldPoint(new Vector2(0, 0)).y;
-        float height = gameCamera.ViewportToWorldPoint(new Vector2(0, 1)).y - hitboxes[0].transform.position.y;
-        noteVelocity = height / secondsOnScreen; // subtract some mythical number // and then recalculate secondsTillHit
+        float height = gameCamera.ViewportToWorldPoint(new Vector2(0, 1)).y - gameCamera.ViewportToWorldPoint(new Vector2(0, 0)).y;
+        float heightWithOffset = gameCamera.ViewportToWorldPoint(new Vector2(0, 1)).y - hitboxes[0].transform.position.y;
+        noteVelocity = heightWithOffset / secondsOnScreen; // subtract some mythical number // and then recalculate secondsTillHit
         secondsTillHit = height / noteVelocity;
     }
 
