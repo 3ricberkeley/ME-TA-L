@@ -1528,7 +1528,12 @@ MonoBehaviour:
   gameCamera: {fileID: 519420031}
   notePrefab: {fileID: 1489405997892978048, guid: a98126adc688fb74ba99281b2f931e05, type: 3}
   songObject: {fileID: 1002184295}
-  secondsTillHit: 2
+  hitboxes:
+  - {fileID: 1648192464}
+  - {fileID: 1792188672}
+  - {fileID: 1834674185}
+  - {fileID: 242160726}
+  secondsOnScreen: 2
 --- !u!4 &2125914754
 Transform:
   m_ObjectHideFlags: 0

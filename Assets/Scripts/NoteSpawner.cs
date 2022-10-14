@@ -11,16 +11,17 @@ public class NoteSpawner : MonoBehaviour {
     public Camera gameCamera;
     public GameObject notePrefab;
     public GameObject songObject;
+    public GameObject[] hitboxes;
 
     readonly private int numLanes = 4;
     private Vector2[] spawnPositions;
     private float noteVelocity;
 
-    public float secondsTillHit = 2;
+    public float secondsOnScreen = 2;
+    private float secondsTillHit;
 
     private Song song;
     private Queue<Note> noteQueue;
-
 
     /** 
      * Initializes constants based on camera height. Then, checks if the song has finished initializing.
@@ -48,18 +49,24 @@ public class NoteSpawner : MonoBehaviour {
      * this just sets up the speed of the note relative to camera height
      */
     private void setupCameraHeight() {
-        float height = gameCamera.ViewportToWorldPoint(new Vector2(0, 1)).y - gameCamera.ViewportToWorldPoint(new Vector2(0, 0)).y;
-        noteVelocity = height / secondsTillHit;
+        //float height = gameCamera.ViewportToWorldPoint(new Vector2(0, 1)).y - gameCamera.ViewportToWorldPoint(new Vector2(0, 0)).y;
+        float height = gameCamera.ViewportToWorldPoint(new Vector2(0, 1)).y - hitboxes[0].transform.position.y;
+        noteVelocity = height / secondsOnScreen; // subtract some mythical number // and then recalculate secondsTillHit
+        secondsTillHit = height / noteVelocity;
     }
 
     /**
-     *  sets up lane spawning coordinates equidistant at the top of the screen
+     *  sets up lane spawning coordinates above where the given hitboxes are 
      */
     private void setupLanePositions() {
         spawnPositions = new Vector2[numLanes];
         for (int i = 0; i < numLanes; i++) {
-            float spawnX = ((float)(2 * i + 1) / (float)(2 * numLanes));
-            Vector2 positionVector = new Vector2(spawnX, 1);
+            Vector2 hitboxPosition = hitboxes[i].transform.position;
+            hitboxPosition = gameCamera.WorldToViewportPoint(hitboxPosition);
+            //float spawnX = ((float)(2 * i + 1) / (float)(2 * numLanes)); leftover code from when lanes are equidistant
+            float spawnX = hitboxPosition.x;
+            float spawnY = hitboxPosition.y + 1;
+            Vector2 positionVector = new Vector2(spawnX, spawnY);
             spawnPositions[i] = gameCamera.ViewportToWorldPoint(positionVector);
         }
     }
@@ -69,13 +76,13 @@ public class NoteSpawner : MonoBehaviour {
     }
 
     //this just spawns one in each lane
-    private void testSpawnInEachLane() {
-        foreach (Vector2 spawnPosition in spawnPositions) {
-            GameObject justSpawnedNote = Instantiate(notePrefab);
-            justSpawnedNote.transform.position = spawnPosition;
-            justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
-        }
-    }
+    //private void testSpawnInEachLane() {
+    //    foreach (Vector2 spawnPosition in spawnPositions) {
+    //        GameObject justSpawnedNote = Instantiate(notePrefab);
+    //        justSpawnedNote.transform.position = spawnPosition;
+    //        justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
+    //    }
+    //}
 
     public void spawnNote(Note note) {
         GameObject justSpawnedNote = Instantiate(notePrefab);
