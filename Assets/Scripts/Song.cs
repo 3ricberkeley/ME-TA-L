@@ -48,7 +48,7 @@ public class Song : MonoBehaviour
     {   
         // Set variables
         noteQueue = new Queue<Note>();
-        musicSource = GetComponent<AudioSource>();
+        // musicSource = GetComponent<AudioSource>();
         secPerBeat = 60f / songBpm;
 
         // Generate the song
