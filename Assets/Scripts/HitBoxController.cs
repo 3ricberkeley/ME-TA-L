@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class HitBoxController : MonoBehaviour
 {
-    public string key;
+    public KeyCode key;
+    private UIManager UI;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        UI = GameObject.FindWithTag("Score").GetComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -18,11 +19,13 @@ public class HitBoxController : MonoBehaviour
   
     }
 
-    void onCollisionStay(Collision2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
+        Debug.Log("hit");
         if (Input.GetKey(key))
         {
             Destroy(other.gameObject);
+            UI.AddScore(1);
         }
     }
 }
