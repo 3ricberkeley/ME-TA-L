@@ -40,9 +40,12 @@ public class NoteSpawner : MonoBehaviour {
         if (noteQueue == null) noteQueue = song.GetNoteQueue();
         if (noteQueue == null) return;
         float songPos = song.getSongPos();
+        songPos = (float)(AudioSettings.dspTime - song.elaspedTime);
         while (noteQueue.Count > 0 && songPos >= noteQueue.Peek().GetTimePos() - secondsTillHit) {
             spawnNote(noteQueue.Dequeue());
-            Debug.Log("time is " + Time.time.ToString() + ", seconds till hit is " + secondsTillHit.ToString() + ", songPos is" + songPos.ToString());
+            Debug.Log("time is " + Time.time.ToString() + ", seconds till hit is " + secondsTillHit.ToString() + ", songPos is" + songPos.ToString()
+                
+                );
         }
     }
 

@@ -24,7 +24,7 @@ public class Song : MonoBehaviour
     // Current timestamp converted to beats
     float songPosInBeats;
     // How much time has passed since the song started
-    float elaspedTime;
+    public float elaspedTime;
     #endregion
 
     #region Mapping_functions
