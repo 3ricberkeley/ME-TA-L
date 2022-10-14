@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class NoteSpawner : MonoBehaviour {
 
-    //TODO: SET UP NOTES TO SPAWN A BIT ABOVE THE SCREEN INSTEAD OF HALFWAY ON THE SCREEN.
-    //THIS REQUIRES CHANGING SPAWN POSITIONS AND VELOCITY
-
     // Start is called before the first frame update
     public Camera gameCamera;
     public GameObject notePrefab;
@@ -35,17 +32,14 @@ public class NoteSpawner : MonoBehaviour {
     /**
      * Update is called every frame. First we check if the song has finished initializing the note queue, and then afterwards,
      * we spawn notes off of the queue until the timestamp for the next note has not been reached yet.
+     * For now, I think we can calculate songPos locally in this class insead of in songLoader because i'm a bit worried about being one frame behind.
      */
     void Update() {
         if (noteQueue == null) noteQueue = song.GetNoteQueue();
         if (noteQueue == null) return;
-        float songPos = song.getSongPos();
-        songPos = (float)(AudioSettings.dspTime - song.elaspedTime);
+        float songPos = (float)(AudioSettings.dspTime - song.getElapsedTime());
         while (noteQueue.Count > 0 && songPos >= noteQueue.Peek().GetTimePos() - secondsTillHit) {
             spawnNote(noteQueue.Dequeue());
-            Debug.Log("time is " + Time.time.ToString() + ", seconds till hit is " + secondsTillHit.ToString() + ", songPos is" + songPos.ToString()
-                
-                );
         }
     }
 
@@ -60,34 +54,31 @@ public class NoteSpawner : MonoBehaviour {
     }
 
     /**
-     *  sets up lane spawning coordinates above where the given hitboxes are 
+     *  sets up lane spawning coordinates above where the given hitboxes are.
      */
     private void setupLanePositions() {
         spawnPositions = new Vector2[numLanes];
         for (int i = 0; i < numLanes; i++) {
             Vector2 hitboxPosition = hitboxes[i].transform.position;
             hitboxPosition = gameCamera.WorldToViewportPoint(hitboxPosition);
-            //float spawnX = ((float)(2 * i + 1) / (float)(2 * numLanes)); leftover code from when lanes are equidistant
             float spawnX = hitboxPosition.x;
             float spawnY = hitboxPosition.y + 1;
             Vector2 positionVector = new Vector2(spawnX, spawnY);
             spawnPositions[i] = gameCamera.ViewportToWorldPoint(positionVector);
         }
     }
+
+    /**
+     * Gets a reference to the script from the song object, check if the noteQueue has finished calculating. 
+     */
     private void setupNoteQueue() {
         song = songObject.GetComponent<Song>();
         noteQueue = song.GetNoteQueue();
     }
 
-    //this just spawns one in each lane
-    //private void testSpawnInEachLane() {
-    //    foreach (Vector2 spawnPosition in spawnPositions) {
-    //        GameObject justSpawnedNote = Instantiate(notePrefab);
-    //        justSpawnedNote.transform.position = spawnPosition;
-    //        justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
-    //    }
-    //}
-
+    /** 
+     * Spawns a note from an instance of the Note datastructure.
+     * */
     public void spawnNote(Note note) {
         GameObject justSpawnedNote = Instantiate(notePrefab);
         justSpawnedNote.transform.position = spawnPositions[note.GetLane()];

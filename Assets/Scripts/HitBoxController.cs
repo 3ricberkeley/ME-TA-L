@@ -21,7 +21,7 @@ public class HitBoxController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("hit");
+        //Debug.Log("hit");
         if (Input.GetKey(key))
         {
             Destroy(other.gameObject);

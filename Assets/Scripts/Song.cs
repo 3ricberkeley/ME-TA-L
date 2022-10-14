@@ -24,7 +24,7 @@ public class Song : MonoBehaviour
     // Current timestamp converted to beats
     float songPosInBeats;
     // How much time has passed since the song started
-    public float elaspedTime;
+    private float elaspedTime;
     #endregion
 
     #region Mapping_functions
@@ -48,7 +48,7 @@ public class Song : MonoBehaviour
     {   
         // Set variables
         noteQueue = new Queue<Note>();
-        // musicSource = GetComponent<AudioSource>();
+        musicSource = GetComponent<AudioSource>();
         secPerBeat = 60f / songBpm;
 
         // Generate the song
@@ -80,6 +80,10 @@ public class Song : MonoBehaviour
     }
     public float getSongPos() {
         return songPos;
+    }
+
+    public float getElapsedTime() {
+        return elaspedTime;
     }
     #endregion
 
