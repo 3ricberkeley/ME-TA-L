@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Assets.Scripts {
     public class SongLoader {
 
-        static string[] paths = new string[] { "Assets\\clockStrikesTimestamps.txt" };
+        static string[] paths = new string[] { "Assets" + Path.DirectorySeparatorChar + "clockStrikesTimestamps.txt" };
 
         public static float[][] getOnlyTimestampsMPV() {
             float[][] songMaps = new float[paths.Length][];
