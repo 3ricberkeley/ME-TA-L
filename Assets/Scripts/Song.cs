@@ -38,7 +38,7 @@ public class Song : MonoBehaviour
     // Return the queue of notes
     public Queue<Note> GetNoteQueue()
     {
-        return noteQueue;
+        return Assets.Scripts.SongLoader.readNotes()[0];
     }
     #endregion
 
@@ -47,7 +47,7 @@ public class Song : MonoBehaviour
     void Start()
     {   
         // Set variables
-        noteQueue = new Queue<Note>();
+        //noteQueue = new Queue<Note>();
         musicSource = GetComponent<AudioSource>();
         secPerBeat = 60f / songBpm;
 
@@ -63,7 +63,7 @@ public class Song : MonoBehaviour
         //    PlaceNote(testTimes[i], testLanes[i], testTypes[i]);
         //}
 
-        mvpTest();
+        //mvpTest();
 
         // Start the song
         elaspedTime = (float)AudioSettings.dspTime;
@@ -87,16 +87,16 @@ public class Song : MonoBehaviour
     }
     #endregion
 
-    private void mvpTest() {
-        float[] testTimes = Assets.Scripts.SongLoader.getOnlyTimestampsMPV()[0];
-        int[] testLanes = new int[testTimes.Length];
-        string[] testTypes = new string[testTimes.Length];
-        for (int i = 0; i < testLanes.Length; i++) {
-            testLanes[i] = 0;                   // FOR NOW SINCE WE DON'T HAVE LANE SPECIFICATIONS THIS LINE IS JUST GOING TO TEMPORARILY MAKE ALL THE NOTES SPAWN IN THAT LANE
-            testTypes[i] = "normal";
-        }
-        for (int i = 0; i < testTimes.Length; i++) {
-            PlaceNote(testTimes[i], testLanes[i], testTypes[i]);
-        }
-    }
+    //private void mvpTest() {
+    //    float[] testTimes = Assets.Scripts.SongLoader.getOnlyTimestampsMPV()[0];
+    //    int[] testLanes = new int[testTimes.Length];
+    //    string[] testTypes = new string[testTimes.Length];
+    //    for (int i = 0; i < testLanes.Length; i++) {
+    //        testLanes[i] = 0;                   // FOR NOW SINCE WE DON'T HAVE LANE SPECIFICATIONS THIS LINE IS JUST GOING TO TEMPORARILY MAKE ALL THE NOTES SPAWN IN THAT LANE
+    //        testTypes[i] = "normal";
+    //    }
+    //    for (int i = 0; i < testTimes.Length; i++) {
+    //        PlaceNote(testTimes[i], testLanes[i], testTypes[i]);
+    //    }
+    //}
 }
