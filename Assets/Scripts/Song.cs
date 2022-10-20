@@ -25,9 +25,6 @@ public class Song : MonoBehaviour
     float songPosInBeats;
     // How much time has passed since the song started
     private float elaspedTime;
-
-    // Song cover
-    private Sprite songCover;
     #endregion
 
     #region Mapping_functions
