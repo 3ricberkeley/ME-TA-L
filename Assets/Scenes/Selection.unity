@@ -630,6 +630,7 @@ GameObject:
   - component: {fileID: 897293385}
   - component: {fileID: 897293384}
   - component: {fileID: 897293383}
+  - component: {fileID: 897293386}
   m_Layer: 0
   m_Name: ClockStrikes
   m_TagString: Untagged
@@ -656,7 +657,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 200}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &897293383
 MonoBehaviour:
@@ -740,6 +741,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 897293381}
   m_CullTransparentMesh: 1
+--- !u!114 &897293386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897293381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b52f54316387c549aa7bef15617b13b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &959799195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,6 +1013,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1835052155}
   coverImgCanvas: {fileID: 773097880}
+  clockStrikesGO: {fileID: 897293381}
+  kingslayerGO: {fileID: 2147177949}
 --- !u!1 &1835052155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,6 +1369,7 @@ GameObject:
   - component: {fileID: 2147177953}
   - component: {fileID: 2147177952}
   - component: {fileID: 2147177951}
+  - component: {fileID: 2147177954}
   m_Layer: 0
   m_Name: Kingslayer
   m_TagString: Untagged
@@ -1379,8 +1395,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_AnchoredPosition: {x: 0, y: -200}
+  m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2147177951
 MonoBehaviour:
@@ -1464,3 +1480,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2147177949}
   m_CullTransparentMesh: 1
+--- !u!114 &2147177954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147177949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b52f54316387c549aa7bef15617b13b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
