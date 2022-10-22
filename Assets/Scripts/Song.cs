@@ -10,7 +10,8 @@ public class Song : MonoBehaviour
     // Song name
     public string songName;
     // Music
-    public AudioSource musicSource;
+    public GameObject musicSource;
+    AudioSource musicAudio;
     // Song BPM
     public float songBpm;
     #endregion
@@ -43,12 +44,17 @@ public class Song : MonoBehaviour
     #endregion
 
     #region Unity_functions
+    void Awake()
+    {
+        musicAudio = musicSource.GetComponent<AudioSource>();
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {   
         // Set variables
         //noteQueue = new Queue<Note>();
-        musicSource = GetComponent<AudioSource>();
         secPerBeat = 60f / songBpm;
 
         // Generate the song
@@ -67,7 +73,7 @@ public class Song : MonoBehaviour
 
         // Start the song
         elaspedTime = (float)AudioSettings.dspTime;
-        musicSource.Play();
+        musicAudio.Play();
     }
 
     // Update is called once per frame
