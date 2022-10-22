@@ -21,6 +21,7 @@ public class Note {
         lane = l;
         type = ty;
     }
+
     public Note(string[] args) {
         timePos = (float)TimeSpan.Parse(args[0]).TotalSeconds;
         lane = int.Parse(args[1]);
