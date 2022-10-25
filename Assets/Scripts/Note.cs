@@ -11,6 +11,8 @@ public class Note {
     int lane;
     // Type of note ("normal", "hold", "burst")
     string type;
+    string text;
+    int burstLength;
     #endregion
 
     #region Note_functions
@@ -26,6 +28,10 @@ public class Note {
         timePos = (float)TimeSpan.Parse(args[0]).TotalSeconds;
         lane = int.Parse(args[1]);
         type = args[2];
+        if (type.Equals("burst")) {
+            burstLength = int.Parse(args[3]);
+            text = string.Join(" ", args[4..]);
+        }
     }
 
     // Return the timestamp that the note is at
@@ -44,6 +50,14 @@ public class Note {
     public string GetNoteType()
     {
         return type;
+    }
+
+    public string GetText() {
+        return text;
+    }
+
+    public int GetBurstLength() {
+        return burstLength;
     }
     #endregion
 }

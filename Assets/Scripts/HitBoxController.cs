@@ -21,10 +21,13 @@ public class HitBoxController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        //Debug.Log("hit");
         if (Input.GetKey(key))
         {
-            Destroy(other.gameObject);
+            if (other.gameObject.CompareTag("burst")) {
+                other.gameObject.GetComponent<burstNote>().destroy();
+            } else {
+                Destroy(other.gameObject);
+            }
             UI.AddScore(1);
         }
     }

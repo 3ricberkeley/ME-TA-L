@@ -7,6 +7,7 @@ public class NoteSpawner : MonoBehaviour {
     // Start is called before the first frame update
     public Camera gameCamera;
     public GameObject notePrefab;
+    public GameObject burstNotePrefab;
     public GameObject songObject;
     public GameObject[] hitboxes;
 
@@ -39,7 +40,12 @@ public class NoteSpawner : MonoBehaviour {
         if (noteQueue == null) return;
         float songPos = (float)(AudioSettings.dspTime - song.getElapsedTime());
         while (noteQueue.Count > 0 && songPos >= noteQueue.Peek().GetTimePos() - secondsTillHit) {
-            spawnNote(noteQueue.Dequeue());
+            Note note = noteQueue.Dequeue();
+            if (note.GetNoteType().Equals("burst")) {
+                spawnBurstNote(note);
+            } else {
+                spawnNote(note);
+            }
         }
     }
 
@@ -83,5 +89,13 @@ public class NoteSpawner : MonoBehaviour {
         GameObject justSpawnedNote = Instantiate(notePrefab);
         justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
         justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
+    }
+
+    public void spawnBurstNote(Note note) {
+        GameObject justSpawnedNote = Instantiate(burstNotePrefab);
+        justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
+        justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
+        justSpawnedNote.GetComponent<burstNote>().text = note.GetText();
+        justSpawnedNote.GetComponent<burstNote>().burstLength = note.GetBurstLength();
     }
 }   

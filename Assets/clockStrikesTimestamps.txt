@@ -1,6 +1,6 @@
 00:00:06.349 1 normal
 00:00:06.886 1 normal
-00:00:07.158 1 normal
+00:00:07.158 1 burst 15 Hello World
 00:00:08.254 1 normal
 00:00:08.500 1 normal
 00:00:09.433 1 normal
