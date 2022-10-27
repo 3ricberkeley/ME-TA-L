@@ -12,7 +12,7 @@ public class Note {
     // Type of note ("normal", "hold", "burst")
     string type;
     string text;
-    int burstLength;
+    float burstLength;
     #endregion
 
     #region Note_functions
@@ -28,9 +28,11 @@ public class Note {
         timePos = (float)TimeSpan.Parse(args[0]).TotalSeconds;
         lane = int.Parse(args[1]);
         type = args[2];
-        if (type.Equals("burst")) {
-            burstLength = int.Parse(args[3]);
+        if (type.Equals("text")) {
+            burstLength = (float)TimeSpan.Parse(args[3]).TotalSeconds - timePos;
             text = string.Join(" ", args[4..]);
+            Debug.Log(text);
+            Debug.Log(burstLength);
         }
     }
 
@@ -56,7 +58,7 @@ public class Note {
         return text;
     }
 
-    public int GetBurstLength() {
+    public float GetBurstLength() {
         return burstLength;
     }
     #endregion

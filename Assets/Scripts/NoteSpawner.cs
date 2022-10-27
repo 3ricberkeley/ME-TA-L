@@ -93,6 +93,8 @@ public class NoteSpawner : MonoBehaviour {
 
     public void spawnBurstNote(Note note) {
         GameObject justSpawnedNote = Instantiate(burstNotePrefab);
+        Debug.Log(note.GetText());
+        Debug.Log(note.GetBurstLength());
         justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
         justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
         justSpawnedNote.GetComponent<burstNote>().text = note.GetText();
