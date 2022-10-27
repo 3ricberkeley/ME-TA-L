@@ -19,12 +19,8 @@ namespace Assets.Scripts {
                     Application.Quit();
                 } else if (noteParameters.Length >=3) {
                     string noteType = noteParameters[2];
-                    if(noteType.Equals("normal")) {
-                        songMap.Enqueue(new Note(noteParameters));
-                    } else {
-                        Debug.LogError("malformed song map: " + noteType + "is not a valid note type.");
-                        Application.Quit();
-                    }
+                    songMap.Enqueue(new Note(noteParameters));
+                    Debug.Log(noteType);
                 }
             }
             return songMap;
