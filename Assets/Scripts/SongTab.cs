@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class SongTab : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
@@ -21,6 +22,13 @@ public class SongTab : MonoBehaviour, ISelectHandler, IDeselectHandler
     public void OnDeselect(BaseEventData eventData)
     {
         rt.sizeDelta = new Vector2(600, 600);
+    }
+
+    // Switch to the song's scene
+    public void OnEnter()
+    {
+        Debug.Log("enter pressed!");
+        SceneManager.LoadScene(transform.name);
     }
 
     // Start is called before the first frame update
