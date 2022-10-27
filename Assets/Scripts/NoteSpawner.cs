@@ -41,7 +41,7 @@ public class NoteSpawner : MonoBehaviour {
         float songPos = (float)(AudioSettings.dspTime - song.getElapsedTime());
         while (noteQueue.Count > 0 && songPos >= noteQueue.Peek().GetTimePos() - secondsTillHit) {
             Note note = noteQueue.Dequeue();
-            if (note.GetNoteType().Equals("burst")) {
+            if (note.GetNoteType().Equals("text")) {
                 spawnBurstNote(note);
             } else {
                 spawnNote(note);
