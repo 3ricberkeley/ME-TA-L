@@ -39,7 +39,7 @@ public class Song : MonoBehaviour
     // Return the queue of notes
     public Queue<Note> GetNoteQueue()
     {
-        return Assets.Scripts.SongLoader.readNotes()[0];
+        return Assets.Scripts.SongLoader.readNotes("Assets" + Path.DirectorySeparatorChar + "clockStrikesTimestamps.txt");
     }
     #endregion
 
