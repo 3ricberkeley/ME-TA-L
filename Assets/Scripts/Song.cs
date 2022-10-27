@@ -39,7 +39,12 @@ public class Song : MonoBehaviour
     // Return the queue of notes
     public Queue<Note> GetNoteQueue()
     {
-        return Assets.Scripts.SongLoader.readNotes()[0];
+        string name = gameObject.name;
+        name = name.Replace("Song", "");
+        name += "Timestamps.txt";
+        Debug.Log(name);
+
+        return Assets.Scripts.SongLoader.readNotes("Assets" + Path.DirectorySeparatorChar + name);
     }
     #endregion
 
