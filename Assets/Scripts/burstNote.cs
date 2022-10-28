@@ -7,6 +7,7 @@ public class burstNote : MonoBehaviour
     public string text;
     public float burstLength;
     private UIManager UI;
+
     void Start() {
         UI = GameObject.FindWithTag("Score").GetComponent<UIManager>();
     }
