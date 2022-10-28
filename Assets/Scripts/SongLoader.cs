@@ -20,7 +20,6 @@ namespace Assets.Scripts {
                 } else if (noteParameters.Length >=3) {
                     string noteType = noteParameters[2];
                     songMap.Enqueue(new Note(noteParameters));
-                    Debug.Log(noteType);
                 }
             }
             return songMap;
