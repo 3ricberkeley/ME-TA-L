@@ -39,7 +39,12 @@ public class Song : MonoBehaviour
     // Return the queue of notes
     public Queue<Note> GetNoteQueue()
     {
-        return Assets.Scripts.SongLoader.readNotes()[0];
+        string name = gameObject.name;
+        name = name.Replace("Song", "");
+        name += "Timestamps.txt";
+        Debug.Log(name);
+
+        return Assets.Scripts.SongLoader.readNotes("Assets" + Path.DirectorySeparatorChar + name);
     }
     #endregion
 
@@ -92,17 +97,4 @@ public class Song : MonoBehaviour
         return elaspedTime;
     }
     #endregion
-
-    //private void mvpTest() {
-    //    float[] testTimes = Assets.Scripts.SongLoader.getOnlyTimestampsMPV()[0];
-    //    int[] testLanes = new int[testTimes.Length];
-    //    string[] testTypes = new string[testTimes.Length];
-    //    for (int i = 0; i < testLanes.Length; i++) {
-    //        testLanes[i] = 0;                   // FOR NOW SINCE WE DON'T HAVE LANE SPECIFICATIONS THIS LINE IS JUST GOING TO TEMPORARILY MAKE ALL THE NOTES SPAWN IN THAT LANE
-    //        testTypes[i] = "normal";
-    //    }
-    //    for (int i = 0; i < testTimes.Length; i++) {
-    //        PlaceNote(testTimes[i], testLanes[i], testTypes[i]);
-    //    }
-    //}
 }
