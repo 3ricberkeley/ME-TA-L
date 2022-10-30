@@ -60,6 +60,7 @@ public class SongSelection : MonoBehaviour
         {
             // Switch the difficulty to easy mode
             difficulty = "Easy";
+            Song.difficulty = difficulty;
 
             // Switch the sprite of the tabs
             Sprite spClock = Resources.Load<Sprite>("Sprites/" + "select_clock");
@@ -78,6 +79,7 @@ public class SongSelection : MonoBehaviour
         {
             // Switch the difficulty to hard mode
             difficulty = "Hard";
+            Song.difficulty = difficulty;
 
             // Switch the sprite of the tabs
             Sprite spClock = Resources.Load<Sprite>("Sprites/" + "select_clock_hard");
@@ -130,6 +132,7 @@ public class SongSelection : MonoBehaviour
 
         // Set the current difficulty
         difficulty = "Easy";
+        Song.difficulty = difficulty;
 
         // Set the songs' button variables
         clockStrikesButton = clockStrikesGO.GetComponent<Button>();
