@@ -156,7 +156,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.033564568}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -167,7 +167,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.22856712}
   m_EdgeRadius: 0
 --- !u!212 &242160728
 SpriteRenderer:
@@ -250,6 +250,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 108
+  burst_anim: {fileID: 0}
+  A_anim: {fileID: 0}
+  S_anim: {fileID: 0}
+  K_anim: {fileID: 0}
+  L_anim: {fileID: 0}
 --- !u!50 &242160731
 Rigidbody2D:
   serializedVersion: 4
@@ -588,6 +593,8 @@ MonoBehaviour:
   _scoreText: {fileID: 0}
   displayedTextBurst: {fileID: 0}
   burstTimerText: {fileID: 0}
+  burstBG: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1 &719505913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,7 +1227,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.03574419}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1231,7 +1238,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.2233653}
   m_EdgeRadius: 0
 --- !u!212 &1648192467
 SpriteRenderer:
@@ -1314,6 +1321,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 97
+  burst_anim: {fileID: 0}
+  A_anim: {fileID: 0}
+  S_anim: {fileID: 0}
+  K_anim: {fileID: 0}
+  L_anim: {fileID: 0}
 --- !u!50 &1648192470
 Rigidbody2D:
   serializedVersion: 4
@@ -1368,7 +1380,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.036067843}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1379,7 +1391,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.22300458}
   m_EdgeRadius: 0
 --- !u!212 &1792188674
 SpriteRenderer:
@@ -1462,6 +1474,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 115
+  burst_anim: {fileID: 0}
+  A_anim: {fileID: 0}
+  S_anim: {fileID: 0}
+  K_anim: {fileID: 0}
+  L_anim: {fileID: 0}
 --- !u!50 &1792188677
 Rigidbody2D:
   serializedVersion: 4
@@ -1516,7 +1533,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.033426046}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1527,7 +1544,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.22828817}
   m_EdgeRadius: 0
 --- !u!212 &1834674187
 SpriteRenderer:
@@ -1610,6 +1627,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 107
+  burst_anim: {fileID: 0}
+  A_anim: {fileID: 0}
+  S_anim: {fileID: 0}
+  K_anim: {fileID: 0}
+  L_anim: {fileID: 0}
 --- !u!50 &1834674190
 Rigidbody2D:
   serializedVersion: 4
@@ -1746,6 +1768,8 @@ MonoBehaviour:
   _scoreText: {fileID: 1375069094}
   displayedTextBurst: {fileID: 1847556089}
   burstTimerText: {fileID: 719505915}
+  burstBG: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &1985037072
 MonoBehaviour:
   m_ObjectHideFlags: 0
