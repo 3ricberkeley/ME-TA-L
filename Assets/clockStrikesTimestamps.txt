@@ -159,20 +159,3 @@
 00:00:51.234 2 text 00:00:57.266 Believe that time is always forever
 00:00:57.311 3 text 00:00:59.600 And I'll always be here
 00:00:59.801 0 text 00:01:02.431 Believe it till the end
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
