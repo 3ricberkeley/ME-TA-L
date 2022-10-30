@@ -17,9 +17,14 @@ public class UIManager : MonoBehaviour
 
     private int score;
 
+    public GameObject burstBG;
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
+        burstBG = GameObject.Find("burstBG");
+        animator = burstBG.GetComponent<Animator>();
         _scoreText.text = "Score: " + 0;
     }
 
@@ -35,6 +40,7 @@ public class UIManager : MonoBehaviour
             if (burstTimer <= 0) {
                 displayedTextBurst.text = string.Empty;
                 burstTimerText.text = string.Empty;
+                animator.SetBool("burst", false);
             } else {
                 burstTimerText.text = burstTimer.ToString();
             }
@@ -42,6 +48,7 @@ public class UIManager : MonoBehaviour
             AddScore((int) burstTimer);
             burstTimer = 0;
             burstTimerText.text = string.Empty;
+            animator.SetBool("burst", false);
         }
 
     }
