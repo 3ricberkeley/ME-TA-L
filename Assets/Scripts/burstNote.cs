@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class burstNote : MonoBehaviour
+public class burstNote : NoteBehavior
 {
-    public string text;
-    public float burstLength;
-    private UIManager UI;
+    public string text { get; set; }
+    public float burstLength { get; set; }
+    protected Animator burst_anim;
 
-    void Start() {
-        UI = GameObject.FindWithTag("Score").GetComponent<UIManager>();
+    public void Start() {
+        burst_anim = GameObject.Find("burstBG").GetComponent<Animator>();
     }
 
-    public void destroy() {
+    public override void onHit(UIManager UI) {
         UI.textBurst(burstLength, text);
+        Debug.Log("bursting in");
+        burst_anim.SetBool("burst", true);
+        base.onHit(UI);
     }
 }
