@@ -14,6 +14,8 @@ public class Song : MonoBehaviour
     AudioSource musicAudio;
     // Song BPM
     public float songBpm;
+    // Difficulty of the song
+    public static string difficulty;
     #endregion
 
     #region Private_song_variables
@@ -39,9 +41,10 @@ public class Song : MonoBehaviour
     // Return the queue of notes
     public Queue<Note> GetNoteQueue()
     {
+
         string name = gameObject.name;
         name = name.Replace("Song", "");
-        name += "Timestamps.txt";
+        name += difficulty + "Timestamps.txt";
         Debug.Log(name);
 
         return Assets.Scripts.SongLoader.readNotes("Assets" + Path.DirectorySeparatorChar + name);

@@ -27,7 +27,6 @@ public class SongTab : MonoBehaviour, ISelectHandler, IDeselectHandler
     // Switch to the song's scene
     public void OnEnter()
     {
-        Debug.Log("enter pressed!");
         SceneManager.LoadScene(transform.name);
     }
 
