@@ -32,10 +32,6 @@ public class HitBoxController : MonoBehaviour
     {
         if (Input.GetKey(key))
         {
-            if (other.gameObject.CompareTag("burst")) {
-
-            }
-
             other.gameObject.GetComponent<NoteBehavior>().onHit(UI);
 
             if (Input.GetKey("a"))
@@ -53,5 +49,9 @@ public class HitBoxController : MonoBehaviour
             }
             UI.AddScore(1);
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        other.gameObject.GetComponent<NoteBehavior>().onMiss(UI);
     }
 }

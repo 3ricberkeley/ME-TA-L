@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField]
     private Text _scoreText;
+    private int score;
 
     [SerializeField]
     private Text displayedTextBurst;
@@ -15,7 +16,9 @@ public class UIManager : MonoBehaviour
     private Text burstTimerText;
     private float burstTimer;
 
-    private int score;
+    [SerializeField]
+    private Text _healthText;
+    private int health;
 
     public GameObject burstBG;
     public Animator animator;
@@ -26,6 +29,8 @@ public class UIManager : MonoBehaviour
         burstBG = GameObject.Find("burstBG");
         animator = burstBG.GetComponent<Animator>();
         _scoreText.text = "Score: " + 0;
+        health = 20;
+        _healthText.text = "Helth: " + health.ToString();
     }
 
     // Update is called once per frame
@@ -77,5 +82,13 @@ public class UIManager : MonoBehaviour
         displayedTextBurst.text = text;
         burstTimer = secs;
         burstTimerText.text = burstTimer.ToString();
+    }
+
+    public void reduceHealth(int amt) {
+        health -= amt;
+        _healthText.text = "Helth: " + health.ToString();
+        if (health <= 0) {
+            Debug.Log("game over or smt idk");
+        }
     }
 }
