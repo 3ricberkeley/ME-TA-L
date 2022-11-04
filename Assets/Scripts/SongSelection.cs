@@ -23,6 +23,7 @@ public class SongSelection : MonoBehaviour
     static Dictionary<int, string> songList;
 
     public static int currSelected;
+    static string difficulty;
     #endregion
 
     #region Selection_functions
@@ -48,6 +49,44 @@ public class SongSelection : MonoBehaviour
             currSelected += 1;
             SelectTab(songList[currSelected]);
             // Debug.Log(EventSystem.current.currentSelectedGameObject.name);
+        }
+    }
+
+    // Switch to easy mode
+    void DecreaseDifficulty()
+    {
+        // Update the difficulty if it's currently in hard mode
+        if (difficulty == "Hard")
+        {
+            // Switch the difficulty to easy mode
+            difficulty = "Easy";
+            Song.difficulty = difficulty;
+
+            // Switch the sprite of the tabs
+            Sprite spClock = Resources.Load<Sprite>("Sprites/" + "select_clock");
+            clockStrikesGO.GetComponent<Image>().sprite = spClock;
+
+            Sprite spKing = Resources.Load<Sprite>("Sprites/" + "select_kingslayer");
+            kingslayerGO.GetComponent<Image>().sprite = spKing;
+        }
+    }
+
+    // Switch to hard mode
+    void IncreaseDifficulty()
+    {
+        // Update the difficulty if it's currently in easy mode
+        if (difficulty == "Easy")
+        {
+            // Switch the difficulty to hard mode
+            difficulty = "Hard";
+            Song.difficulty = difficulty;
+
+            // Switch the sprite of the tabs
+            Sprite spClock = Resources.Load<Sprite>("Sprites/" + "select_clock_hard");
+            clockStrikesGO.GetComponent<Image>().sprite = spClock;
+
+            Sprite spKing = Resources.Load<Sprite>("Sprites/" + "select_kingslayer_hard");
+            kingslayerGO.GetComponent<Image>().sprite = spKing;
         }
     }
 
@@ -91,6 +130,10 @@ public class SongSelection : MonoBehaviour
         songList.Add(0, "Clock Strikes");
         songList.Add(1, "Kingslayer");
 
+        // Set the current difficulty
+        difficulty = "Easy";
+        Song.difficulty = difficulty;
+
         // Set the songs' button variables
         clockStrikesButton = clockStrikesGO.GetComponent<Button>();
         kingslayerButton = kingslayerGO.GetComponent<Button>();
@@ -110,6 +153,12 @@ public class SongSelection : MonoBehaviour
         } else if (Input.GetKeyDown("down"))
         {
             SelectBelow();
+        } else if (Input.GetKeyDown("left"))
+        {
+            DecreaseDifficulty();
+        } else if (Input.GetKeyDown("right"))
+        {
+            IncreaseDifficulty();
         }
     }
     #endregion
