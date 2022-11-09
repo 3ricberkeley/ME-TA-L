@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Tutorial : MonoBehaviour
 {
     #region Audio_vars
+    // Audio source
     public AudioSource audioSource;
     #endregion
 
@@ -26,6 +27,7 @@ public class Tutorial : MonoBehaviour
     #endregion
 
     #region Pause_funcs
+    // Change the visibility of the type UI mask
     void ToggleMask(string type, bool state)
     {
         if (type == "normal")
@@ -42,6 +44,7 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    // Pause the game within 0.015f of timestamp t
     void PauseGame(float t, string type)
     {
         if (!isPaused && (Time.timeSinceLevelLoad >= t && Time.timeSinceLevelLoad < t + 0.015f))
@@ -54,6 +57,7 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    // IEnumerator for the completed message and transition to the song selection scene
     IEnumerator CompletedTutorial()
     {
         if (Time.timeSinceLevelLoad >= 33.0f && Time.timeSinceLevelLoad < 33.025f)
@@ -66,6 +70,7 @@ public class Tutorial : MonoBehaviour
     #endregion
 
     #region Unity_funcs
+    // Initialize pause variables
     void Start()
     {
         isPaused = false;
@@ -75,7 +80,7 @@ public class Tutorial : MonoBehaviour
     // Pause the tutorial at certain timestamps
     void FixedUpdate()
     {
-        Debug.Log((Time.timeSinceLevelLoad).ToString());
+        //Debug.Log((Time.timeSinceLevelLoad).ToString());
         PauseGame(2.8f, "normal");
         PauseGame(14.7f, "hold");
         PauseGame(30.3f, "text");
