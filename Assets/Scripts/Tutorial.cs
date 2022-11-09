@@ -44,7 +44,7 @@ public class Tutorial : MonoBehaviour
 
     void PauseGame(float t, string type)
     {
-        if (Time.timeSinceLevelLoad == t)
+        if (!isPaused && (Time.timeSinceLevelLoad >= t && Time.timeSinceLevelLoad < t + 0.015f))
         {
             isPaused = true;
             noteType = type;
@@ -56,7 +56,7 @@ public class Tutorial : MonoBehaviour
 
     IEnumerator CompletedTutorial()
     {
-        if (Time.timeSinceLevelLoad == 33.0f)
+        if (Time.timeSinceLevelLoad >= 33.0f && Time.timeSinceLevelLoad < 33.025f)
         {
             completed.gameObject.SetActive(true);
             yield return new WaitForSeconds(2.5f);
@@ -75,7 +75,7 @@ public class Tutorial : MonoBehaviour
     // Pause the tutorial at certain timestamps
     void FixedUpdate()
     {
-        // Debug.Log(Time.timeSinceLevelLoad.ToString());
+        Debug.Log((Time.timeSinceLevelLoad).ToString());
         PauseGame(2.8f, "normal");
         PauseGame(14.7f, "hold");
         PauseGame(30.3f, "text");
