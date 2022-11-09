@@ -17,6 +17,8 @@ public class Note {
 
     #region Note_functions
     // Note Constructor
+    public Note() { }
+
     public Note(float t, int l, string ty)
     {
         timePos = t;
