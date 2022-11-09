@@ -8,6 +8,7 @@ public class NoteSpawner : MonoBehaviour {
     public Camera gameCamera;
     public GameObject notePrefab;
     public GameObject burstNotePrefab;
+    public GameObject holdNotePrefab;
     public GameObject songObject;
     public GameObject[] hitboxes;
 
@@ -99,5 +100,10 @@ public class NoteSpawner : MonoBehaviour {
         justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
         justSpawnedNote.GetComponent<burstNote>().text = note.GetText();
         justSpawnedNote.GetComponent<burstNote>().burstLength = note.GetBurstLength();
+    }
+
+    public void spawnHoldNote(NoteSpawner note)
+    {
+        GameObject justSpawnedNote = Instantiate(holdNotePrefab);
     }
 }   
