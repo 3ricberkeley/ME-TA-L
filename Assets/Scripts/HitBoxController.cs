@@ -7,7 +7,6 @@ public class HitBoxController : MonoBehaviour
     public KeyCode key;
     private UIManager UI;
 
-    public Animator burst_anim;
     public Animator A_anim;
     public Animator S_anim;
     public Animator K_anim;
@@ -16,7 +15,6 @@ public class HitBoxController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        burst_anim = GameObject.Find("burstBG").GetComponent<Animator>();
         A_anim = GameObject.Find("A Box").GetComponent<Animator>();
         S_anim = GameObject.Find("S Box").GetComponent<Animator>();
         K_anim = GameObject.Find("K Box").GetComponent<Animator>();
@@ -35,12 +33,10 @@ public class HitBoxController : MonoBehaviour
         if (Input.GetKey(key))
         {
             if (other.gameObject.CompareTag("burst")) {
-                Debug.Log("bursting in");
-                burst_anim.SetBool("burst", true);
-                other.gameObject.GetComponent<burstNote>().destroy();
-            } else {
-                Destroy(other.gameObject);
+
             }
+
+            other.gameObject.GetComponent<NoteBehavior>().onHit(UI);
 
             if (Input.GetKey("a"))
             {
