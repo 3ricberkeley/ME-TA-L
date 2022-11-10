@@ -13,11 +13,14 @@ public class SongSelection : MonoBehaviour
 
     public GameObject clockStrikesGO;
     public GameObject kingslayerGO;
+    public GameObject mozaikRoleGO;
     Button clockStrikesButton;
     Button kingslayerButton;
+    Button mozaikRoleButton;
 
     public AudioSource clockStrikesAS;
     public AudioSource kingslayerAS;
+    public AudioSource mozaikRoleAS;
 
     public SceneSwitcher scSw;
     #endregion
@@ -73,6 +76,9 @@ public class SongSelection : MonoBehaviour
 
             Sprite spKing = Resources.Load<Sprite>("Sprites/" + "select_kingslayer");
             kingslayerGO.GetComponent<Image>().sprite = spKing;
+
+            Sprite spMozaik = Resources.Load<Sprite>("Sprites/" + "select_mozaik");
+            mozaikRoleGO.GetComponent<Image>().sprite = spMozaik;
         }
     }
 
@@ -92,6 +98,9 @@ public class SongSelection : MonoBehaviour
 
             Sprite spKing = Resources.Load<Sprite>("Sprites/" + "select_kingslayer_hard");
             kingslayerGO.GetComponent<Image>().sprite = spKing;
+
+            Sprite spMozaik = Resources.Load<Sprite>("Sprites/" + "select_mozaik_hard");
+            mozaikRoleGO.GetComponent<Image>().sprite = spMozaik;
         }
     }
 
@@ -125,6 +134,13 @@ public class SongSelection : MonoBehaviour
             scSw.audioSource.Play();
             kingslayerButton.Select();
         }
+        else if (songList[currSelected] == "Mozaik Role")
+        {
+            scSw.audioSource.Stop();
+            scSw.audioSource = mozaikRoleAS;
+            scSw.audioSource.Play();
+            mozaikRoleButton.Select();
+        }
     }
 
     #endregion
@@ -134,12 +150,13 @@ public class SongSelection : MonoBehaviour
     void Start()
     {
         // Set the song list length
-        songListLen = 2;
+        songListLen = 3;
 
         // Generate the song list dictionary
         songList = new Dictionary<int, string>();
         songList.Add(0, "Clock Strikes");
         songList.Add(1, "Kingslayer");
+        songList.Add(2, "Mozaik Role");
 
         // Set the current difficulty
         difficulty = "Easy";
@@ -148,6 +165,7 @@ public class SongSelection : MonoBehaviour
         // Set the songs' button variables
         clockStrikesButton = clockStrikesGO.GetComponent<Button>();
         kingslayerButton = kingslayerGO.GetComponent<Button>();
+        mozaikRoleButton = mozaikRoleGO.GetComponent<Button>();
 
         // Set the current selected song to the top of the list
         currSelected = 0;

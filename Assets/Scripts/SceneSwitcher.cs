@@ -77,6 +77,10 @@ public class SceneSwitcher : MonoBehaviour
         {
             LoadSelection();
         }
+        if (songName == "Mozaik Role" && (Time.timeSinceLevelLoad >= 108.0f && Time.timeSinceLevelLoad < 108.25f))
+        {
+            LoadSelection();
+        }
     }
 
     // Whenever ESCAPE is pressed, open/close the menu
