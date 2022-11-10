@@ -15,6 +15,11 @@ public class SongSelection : MonoBehaviour
     public GameObject kingslayerGO;
     Button clockStrikesButton;
     Button kingslayerButton;
+
+    public AudioSource clockStrikesAS;
+    public AudioSource kingslayerAS;
+
+    public SceneSwitcher scSw;
     #endregion
 
     #region Selection_variables
@@ -95,7 +100,7 @@ public class SongSelection : MonoBehaviour
     {
         // Deselect the button of the previously selected song
         SelectButton(songName);
-
+        
         // Display the cover of the currently selected song
         string songBgName = songName.ToLower().Replace(" ", "") + "cover";
         Sprite sp = Resources.Load<Sprite>("Sprites/" + songBgName);
@@ -108,10 +113,16 @@ public class SongSelection : MonoBehaviour
         // Select the button of the currently selected song
         if (songList[currSelected] == "Clock Strikes")
         {
+            scSw.audioSource.Stop();
+            scSw.audioSource = clockStrikesAS;
+            scSw.audioSource.Play();
             clockStrikesButton.Select();
         }
         else if (songList[currSelected] == "Kingslayer")
         {
+            scSw.audioSource.Stop();
+            scSw.audioSource = kingslayerAS;
+            scSw.audioSource.Play();
             kingslayerButton.Select();
         }
     }
@@ -140,6 +151,7 @@ public class SongSelection : MonoBehaviour
 
         // Set the current selected song to the top of the list
         currSelected = 0;
+        scSw.audioSource = clockStrikesAS;
         SelectTab(songList[currSelected]);
     }
 
