@@ -1506,6 +1506,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuGO
       objectReference: {fileID: 0}
+    - target: {fileID: 4460483222175614802, guid: 76f3c2c08e2509941af119b2bc55429d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4460483222175614803, guid: 76f3c2c08e2509941af119b2bc55429d, type: 3}
       propertyPath: m_RootOrder
       value: 10
