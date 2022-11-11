@@ -22,7 +22,7 @@ public class SongSelection : MonoBehaviour
     public AudioSource kingslayerAS;
     public AudioSource mozaikRoleAS;
 
-    public SceneSwitcher scSw;
+    private AudioSource currAS;
     #endregion
 
     #region Selection_variables
@@ -101,6 +101,8 @@ public class SongSelection : MonoBehaviour
 
             Sprite spMozaik = Resources.Load<Sprite>("Sprites/" + "select_mozaikrole_hard");
             mozaikRoleGO.GetComponent<Image>().sprite = spMozaik;
+
+            SelectTab(songList[currSelected]);
         }
     }
 
@@ -119,26 +121,36 @@ public class SongSelection : MonoBehaviour
     // Select a button
     void SelectButton(string songName)
     {
+        string currSongName = currAS.name.Replace("AS", "");
         // Select the button of the currently selected song
         if (songList[currSelected] == "Clock Strikes")
         {
-            scSw.audioSource.Stop();
-            scSw.audioSource = clockStrikesAS;
-            scSw.audioSource.Play();
+            if (currAS.isPlaying && currSongName != "ClockStrikes")
+            {
+                currAS.Stop();
+                currAS = clockStrikesAS;
+                currAS.Play();
+            }
             clockStrikesButton.Select();
         }
         else if (songList[currSelected] == "Kingslayer")
         {
-            scSw.audioSource.Stop();
-            scSw.audioSource = kingslayerAS;
-            scSw.audioSource.Play();
+            if (currAS.isPlaying && currSongName != "Kingslayer")
+            {
+                currAS.Stop();
+                currAS = kingslayerAS;
+                currAS.Play();
+            }
             kingslayerButton.Select();
         }
         else if (songList[currSelected] == "Mozaik Role")
         {
-            scSw.audioSource.Stop();
-            scSw.audioSource = mozaikRoleAS;
-            scSw.audioSource.Play();
+            if (currAS.isPlaying && currSongName != "MozaikRole")
+            {
+                currAS.Stop();
+                currAS = mozaikRoleAS;
+                currAS.Play();
+            }
             mozaikRoleButton.Select();
         }
     }
@@ -169,7 +181,8 @@ public class SongSelection : MonoBehaviour
 
         // Set the current selected song to the top of the list
         currSelected = 0;
-        scSw.audioSource = clockStrikesAS;
+        currAS = clockStrikesAS;
+        currAS.Play();
         SelectTab(songList[currSelected]);
     }
 

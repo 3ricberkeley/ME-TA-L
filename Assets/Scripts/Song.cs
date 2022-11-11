@@ -71,6 +71,10 @@ public class Song : MonoBehaviour
 
         // Start the song
         elaspedTime = (float)AudioSettings.dspTime;
+        if (musicAudio.isPlaying)
+        {
+            musicAudio.Stop();
+        }
         musicAudio.Play();
     }
 

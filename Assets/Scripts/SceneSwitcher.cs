@@ -12,12 +12,7 @@ public class SceneSwitcher : MonoBehaviour
     public GameObject menu;
     // Bool indicating whether or not the menu is open
     private bool menuIsOpen;
-    #endregion
-
-    #region Audio_vars
-    // Audio source
-    public AudioSource audioSource;
-    // Song name from the audio source
+    // Song name
     private string songName;
     #endregion
 
@@ -62,7 +57,7 @@ public class SceneSwitcher : MonoBehaviour
     void Start()
     {
         menuIsOpen = false;
-        songName = audioSource.name.Replace("AS", "");
+        songName = "ClockStrikes";
     }
 
     // After the song ends, wait 5~ seconds and return to the selection scene
@@ -100,6 +95,13 @@ public class SceneSwitcher : MonoBehaviour
                 PauseGame();
             }
         }
+    }
+
+    // Before the scene is switched, unpause the game
+    // (This is in the case that the player uses the menu)
+    void OnDestroy()
+    {
+        UnpauseGame();
     }
     #endregion
 }
