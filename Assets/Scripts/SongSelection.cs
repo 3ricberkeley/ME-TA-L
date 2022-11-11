@@ -77,7 +77,7 @@ public class SongSelection : MonoBehaviour
             Sprite spKing = Resources.Load<Sprite>("Sprites/" + "select_kingslayer");
             kingslayerGO.GetComponent<Image>().sprite = spKing;
 
-            Sprite spMozaik = Resources.Load<Sprite>("Sprites/" + "select_mozaik");
+            Sprite spMozaik = Resources.Load<Sprite>("Sprites/" + "select_mozaikrole");
             mozaikRoleGO.GetComponent<Image>().sprite = spMozaik;
         }
     }
@@ -99,7 +99,7 @@ public class SongSelection : MonoBehaviour
             Sprite spKing = Resources.Load<Sprite>("Sprites/" + "select_kingslayer_hard");
             kingslayerGO.GetComponent<Image>().sprite = spKing;
 
-            Sprite spMozaik = Resources.Load<Sprite>("Sprites/" + "select_mozaik_hard");
+            Sprite spMozaik = Resources.Load<Sprite>("Sprites/" + "select_mozaikrole_hard");
             mozaikRoleGO.GetComponent<Image>().sprite = spMozaik;
         }
     }
