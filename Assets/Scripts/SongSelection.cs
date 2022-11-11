@@ -79,6 +79,8 @@ public class SongSelection : MonoBehaviour
 
             Sprite spMozaik = Resources.Load<Sprite>("Sprites/" + "select_mozaikrole");
             mozaikRoleGO.GetComponent<Image>().sprite = spMozaik;
+
+            SelectButton(songList[currSelected]);
         }
     }
 
@@ -101,9 +103,8 @@ public class SongSelection : MonoBehaviour
 
             Sprite spMozaik = Resources.Load<Sprite>("Sprites/" + "select_mozaikrole_hard");
             mozaikRoleGO.GetComponent<Image>().sprite = spMozaik;
-
-            SelectTab(songList[currSelected]);
         }
+        SelectButton(songList[currSelected]);
     }
 
     // Inner workings to select a tab

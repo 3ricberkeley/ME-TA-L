@@ -8,8 +8,8 @@ public class HandleTextFile : MonoBehaviour
 {
     public static void WriteString(float t)
     {
-        // string path = "Assets/Resources/test.txt";
-        string path = "Assets/Resources/mozaikeasy.txt";
+        string path = "Assets/Resources/test.txt";
+        //string path = "Assets/Resources/mozaikeasy.txt";
         //Write some text to the test.txt file
         StreamWriter writer = new StreamWriter(path, true);
         writer.WriteLine(t.ToString());
