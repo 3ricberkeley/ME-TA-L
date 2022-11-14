@@ -39,6 +39,7 @@ public class Note {
         }
         if (type.Equals("hold"))
         {
+            Debug.Log("setting hold length");
             holdLength = (float)TimeSpan.Parse(args[3]).TotalSeconds;
             Debug.Log("Hold: " + holdLength);
         }

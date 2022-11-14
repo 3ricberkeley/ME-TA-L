@@ -109,7 +109,7 @@ public class NoteSpawner : MonoBehaviour {
         justSpawnedNote.GetComponent<burstNote>().burstLength = note.GetBurstLength();
     }
 
-    public void spawnholdnote(Note note)
+    public void spawnHoldNote(Note note)
     {
         GameObject justSpawnedNote = Instantiate(holdNotePrefab);
 
