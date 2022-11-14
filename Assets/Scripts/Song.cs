@@ -16,8 +16,6 @@ public class Song : MonoBehaviour
     public float songBpm;
     // Difficulty of the song
     public static string difficulty;
-    // Bool that indicates whether or not it's the tutorial song
-    public bool isTutorial;
     #endregion
 
     #region Private_song_variables
@@ -43,6 +41,7 @@ public class Song : MonoBehaviour
     // Return the queue of notes
     public Queue<Note> GetNoteQueue()
     {
+
         string name = gameObject.name;
         name = name.Replace("Song", "");
         name += difficulty + "Timestamps.txt";
@@ -56,25 +55,32 @@ public class Song : MonoBehaviour
     void Awake()
     {
         musicAudio = musicSource.GetComponent<AudioSource>();
-
-        if (isTutorial)
-        {
-            difficulty = "Easy";
-        }
     }
+
 
     // Start is called before the first frame update
     void Start()
     {   
         // Set variables
+        //noteQueue = new Queue<Note>();
         secPerBeat = 60f / songBpm;
+
+        // Generate the song
+        // Create an array of timestamps and iterate through it while calling PlaceNote(?)
+        // Can use a different data structure so you could add values out-of-order and sort it later
+
+        //float[] testTimes = {1.5f, 4.0f, 7.0f};
+        //int[] testLanes = {0, 1, 2};
+        //string[] testTypes = {"normal", "normal", "normal"};
+        //for (int i = 0; i < testTimes.Length; i++)
+        //{
+        //    PlaceNote(testTimes[i], testLanes[i], testTypes[i]);
+        //}
+
+        //mvpTest();
 
         // Start the song
         elaspedTime = (float)AudioSettings.dspTime;
-        if (musicAudio.isPlaying)
-        {
-            musicAudio.Stop();
-        }
         musicAudio.Play();
     }
 

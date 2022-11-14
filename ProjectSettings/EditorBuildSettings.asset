@@ -6,21 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Start.unity
-    guid: ec59a0650e49f3846bd4f0b8547cff2a
-  - enabled: 1
-    path: Assets/Scenes/HowToPlay.unity
-    guid: 4fc152b84a60fe348b0b7c2005666629
-  - enabled: 1
-    path: Assets/Scenes/Selection.unity
+    path: Assets/Songs/Scenes/Selection.unity
     guid: 92f77acffc82a224e81b7ed9b3522bbd
   - enabled: 1
-    path: Assets/Scenes/ClockStrikes.unity
+    path: Assets/Songs/Scenes/ClockStrikes.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Kingslayer.unity
+    path: Assets/Songs/Scenes/Kingslayer.unity
     guid: 882fc0ed06cd8a54bb6c6850e7bc6f69
-  - enabled: 1
-    path: Assets/Scenes/MozaikRole.unity
-    guid: 5c27bc69656602f418cc7827df42bff2
   m_configObjects: {}
