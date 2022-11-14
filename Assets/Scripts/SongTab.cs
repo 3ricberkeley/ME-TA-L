@@ -15,7 +15,7 @@ public class SongTab : MonoBehaviour, ISelectHandler, IDeselectHandler
     // Enlarge the tab when selected
     public void OnSelect(BaseEventData eventData)
     {
-        rt.sizeDelta = new Vector2(1000, 1000);
+        rt.sizeDelta = new Vector2(800, 800);
     }
 
     // Enlarge the tab when selected
