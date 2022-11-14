@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text.RegularExpressions;
 
 public class Note {
     #region Note_variables
@@ -13,6 +14,7 @@ public class Note {
     string type;
     string text;
     float burstLength;
+    float holdLength;
     #endregion
 
     #region Note_functions
@@ -36,15 +38,14 @@ public class Note {
             Debug.Log(text);
             Debug.Log(burstLength);
         }
-<<<<<<< HEAD
         if (type.Equals("hold"))
         {
-            Debug.Log("setting hold length");
-            holdLength = (float)TimeSpan.Parse(args[3]).TotalSeconds;
+            string strTime = args[3];
+            string pattern = @"^(\[){1}(.*?)(\]){1}$";
+            strTime = Regex.Replace(strTime, pattern, "$2");
+            holdLength = (float)TimeSpan.Parse(strTime).TotalSeconds - timePos;
             Debug.Log("Hold: " + holdLength);
         }
-=======
->>>>>>> parent of b89cd33 (TimeParse errors not sure what's causing it)
     }
 
     // Return the timestamp that the note is at

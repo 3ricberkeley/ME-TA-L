@@ -102,11 +102,8 @@ public class NoteSpawner : MonoBehaviour {
         justSpawnedNote.GetComponent<burstNote>().burstLength = note.GetBurstLength();
     }
 
-<<<<<<< HEAD
-    public void spawnHoldNote(Note note)
-=======
+
     public void spawnHoldNote(NoteSpawner note)
->>>>>>> parent of b89cd33 (TimeParse errors not sure what's causing it)
     {
         GameObject justSpawnedNote = Instantiate(holdNotePrefab);
     }
