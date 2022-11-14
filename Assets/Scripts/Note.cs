@@ -13,7 +13,6 @@ public class Note {
     string type;
     string text;
     float burstLength;
-    float holdLength;
     #endregion
 
     #region Note_functions
@@ -37,12 +36,15 @@ public class Note {
             Debug.Log(text);
             Debug.Log(burstLength);
         }
+<<<<<<< HEAD
         if (type.Equals("hold"))
         {
             Debug.Log("setting hold length");
             holdLength = (float)TimeSpan.Parse(args[3]).TotalSeconds;
             Debug.Log("Hold: " + holdLength);
         }
+=======
+>>>>>>> parent of b89cd33 (TimeParse errors not sure what's causing it)
     }
 
     // Return the timestamp that the note is at
@@ -69,11 +71,6 @@ public class Note {
 
     public float GetBurstLength() {
         return burstLength;
-    }
-
-    public float GetHoldLength()
-    {
-        return holdLength;
     }
     #endregion
 }

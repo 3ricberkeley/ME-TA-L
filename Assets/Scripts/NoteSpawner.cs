@@ -44,14 +44,7 @@ public class NoteSpawner : MonoBehaviour {
             Note note = noteQueue.Dequeue();
             if (note.GetNoteType().Equals("text")) {
                 spawnBurstNote(note);
-            }
-            else if (note.GetNoteType().Equals("hold"))
-            {
-                Debug.Log("spawning hold note");
-                spawnHoldNote(note);
-            }
-            else
-            {
+            } else {
                 spawnNote(note);
             }
         }
@@ -109,16 +102,12 @@ public class NoteSpawner : MonoBehaviour {
         justSpawnedNote.GetComponent<burstNote>().burstLength = note.GetBurstLength();
     }
 
+<<<<<<< HEAD
     public void spawnHoldNote(Note note)
+=======
+    public void spawnHoldNote(NoteSpawner note)
+>>>>>>> parent of b89cd33 (TimeParse errors not sure what's causing it)
     {
         GameObject justSpawnedNote = Instantiate(holdNotePrefab);
-
-        //set initial note position and velocity
-        justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
-        justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
-
-        //set note length
-        justSpawnedNote.GetComponent<holdNote>().length = note.GetHoldLength();
-
     }
 }   
