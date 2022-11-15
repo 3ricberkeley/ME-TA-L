@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HoldNote : Note
+public class holdNote : NoteBehavior 
 {
-    public GameObject holdNote;
-    private float length;
+    public GameObject mHoldNote;
+    public float length;
 
-    public HoldNote(float mlength)
+    public holdNote(float mlength)
     {
         length = mlength;
     }
@@ -16,7 +16,7 @@ public class HoldNote : Note
     void Start()
     {
         Vector3 scaleChange = new Vector3(0.1f, 0.1f * length, 1f);
-        holdNote.transform.GetChild(0).transform.localScale = scaleChange; 
+        mHoldNote.transform.GetChild(0).transform.localScale = scaleChange; 
     }
 
     // Update is called once per frame

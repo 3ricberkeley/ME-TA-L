@@ -1020,6 +1020,7 @@ MonoBehaviour:
   gameCamera: {fileID: 528683946}
   notePrefab: {fileID: 1489405997892978048, guid: a98126adc688fb74ba99281b2f931e05, type: 3}
   burstNotePrefab: {fileID: 1489405997892978048, guid: 6792b4e8f8ddc3c4bb0bb21193fb06ae, type: 3}
+  holdNotePrefab: {fileID: 1055005683924810407, guid: 83050ca6e20bae74da3def19c55c77b3, type: 3}
   songObject: {fileID: 483401650}
   hitboxes:
   - {fileID: 327271611}

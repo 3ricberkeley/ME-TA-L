@@ -73,5 +73,10 @@ public class Note {
     public float GetBurstLength() {
         return burstLength;
     }
+
+    public float GetHoldLength()
+    {
+        return holdLength;
+    }
     #endregion
 }

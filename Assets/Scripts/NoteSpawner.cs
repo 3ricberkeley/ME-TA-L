@@ -44,7 +44,12 @@ public class NoteSpawner : MonoBehaviour {
             Note note = noteQueue.Dequeue();
             if (note.GetNoteType().Equals("text")) {
                 spawnBurstNote(note);
-            } else {
+            }
+            else if (note.GetNoteType().Equals("hold"))
+            {
+                spawnHoldNote(note);
+            }
+            else {
                 spawnNote(note);
             }
         }
@@ -103,8 +108,12 @@ public class NoteSpawner : MonoBehaviour {
     }
 
 
-    public void spawnHoldNote(NoteSpawner note)
+    public void spawnHoldNote(Note note)
     {
         GameObject justSpawnedNote = Instantiate(holdNotePrefab);
+
+        justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
+        justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
+        justSpawnedNote.GetComponent<holdNote>().length = note.GetHoldLength();
     }
 }   
