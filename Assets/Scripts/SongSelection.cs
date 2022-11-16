@@ -13,8 +13,16 @@ public class SongSelection : MonoBehaviour
 
     public GameObject clockStrikesGO;
     public GameObject kingslayerGO;
+    public GameObject mozaikRoleGO;
     Button clockStrikesButton;
     Button kingslayerButton;
+    Button mozaikRoleButton;
+
+    public AudioSource clockStrikesAS;
+    public AudioSource kingslayerAS;
+    public AudioSource mozaikRoleAS;
+
+    private AudioSource currAS;
     #endregion
 
     #region Selection_variables
@@ -68,6 +76,11 @@ public class SongSelection : MonoBehaviour
 
             Sprite spKing = Resources.Load<Sprite>("Sprites/" + "select_kingslayer");
             kingslayerGO.GetComponent<Image>().sprite = spKing;
+
+            Sprite spMozaik = Resources.Load<Sprite>("Sprites/" + "select_mozaikrole");
+            mozaikRoleGO.GetComponent<Image>().sprite = spMozaik;
+
+            SelectButton(songList[currSelected]);
         }
     }
 
@@ -87,7 +100,11 @@ public class SongSelection : MonoBehaviour
 
             Sprite spKing = Resources.Load<Sprite>("Sprites/" + "select_kingslayer_hard");
             kingslayerGO.GetComponent<Image>().sprite = spKing;
+
+            Sprite spMozaik = Resources.Load<Sprite>("Sprites/" + "select_mozaikrole_hard");
+            mozaikRoleGO.GetComponent<Image>().sprite = spMozaik;
         }
+        SelectButton(songList[currSelected]);
     }
 
     // Inner workings to select a tab
@@ -95,7 +112,7 @@ public class SongSelection : MonoBehaviour
     {
         // Deselect the button of the previously selected song
         SelectButton(songName);
-
+        
         // Display the cover of the currently selected song
         string songBgName = songName.ToLower().Replace(" ", "") + "cover";
         Sprite sp = Resources.Load<Sprite>("Sprites/" + songBgName);
@@ -105,14 +122,37 @@ public class SongSelection : MonoBehaviour
     // Select a button
     void SelectButton(string songName)
     {
+        string currSongName = currAS.name.Replace("AS", "");
         // Select the button of the currently selected song
         if (songList[currSelected] == "Clock Strikes")
         {
+            if (currAS.isPlaying && currSongName != "ClockStrikes")
+            {
+                currAS.Stop();
+                currAS = clockStrikesAS;
+                currAS.Play();
+            }
             clockStrikesButton.Select();
         }
         else if (songList[currSelected] == "Kingslayer")
         {
+            if (currAS.isPlaying && currSongName != "Kingslayer")
+            {
+                currAS.Stop();
+                currAS = kingslayerAS;
+                currAS.Play();
+            }
             kingslayerButton.Select();
+        }
+        else if (songList[currSelected] == "Mozaik Role")
+        {
+            if (currAS.isPlaying && currSongName != "MozaikRole")
+            {
+                currAS.Stop();
+                currAS = mozaikRoleAS;
+                currAS.Play();
+            }
+            mozaikRoleButton.Select();
         }
     }
 
@@ -123,12 +163,13 @@ public class SongSelection : MonoBehaviour
     void Start()
     {
         // Set the song list length
-        songListLen = 2;
+        songListLen = 3;
 
         // Generate the song list dictionary
         songList = new Dictionary<int, string>();
         songList.Add(0, "Clock Strikes");
         songList.Add(1, "Kingslayer");
+        songList.Add(2, "Mozaik Role");
 
         // Set the current difficulty
         difficulty = "Easy";
@@ -137,9 +178,12 @@ public class SongSelection : MonoBehaviour
         // Set the songs' button variables
         clockStrikesButton = clockStrikesGO.GetComponent<Button>();
         kingslayerButton = kingslayerGO.GetComponent<Button>();
+        mozaikRoleButton = mozaikRoleGO.GetComponent<Button>();
 
         // Set the current selected song to the top of the list
         currSelected = 0;
+        currAS = clockStrikesAS;
+        currAS.Play();
         SelectTab(songList[currSelected]);
     }
 

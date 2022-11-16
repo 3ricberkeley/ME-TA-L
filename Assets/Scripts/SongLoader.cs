@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Assets.Scripts {
     public class SongLoader {
 
-        static string[] paths = new string[] { "Assets" + Path.DirectorySeparatorChar + "clockStrikesTimestamps.txt" };
+        // static string[] paths = new string[] { "Assets" + Path.DirectorySeparatorChar + "clockStrikesTimestamps.txt" };
 
         public static Queue<Note> readNotes(string path) {
             string[] timestampStrings = File.ReadAllLines(path);
