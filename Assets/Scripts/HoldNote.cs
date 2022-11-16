@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class holdNote : NoteBehavior 
 {
-    public GameObject mHoldNote;
     public float length;
+    Vector3 scaleChange;
 
     public holdNote(float mlength)
     {
@@ -22,6 +22,7 @@ public class holdNote : NoteBehavior
     // Update is called once per frame
     void Update()
     {
-        
+        scaleChange = new Vector3(0.1f, 0.1f * length, 1f);
+        this.transform.GetChild(0).transform.localScale = scaleChange;
     }
 }
