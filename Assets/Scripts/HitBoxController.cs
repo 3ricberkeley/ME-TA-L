@@ -25,7 +25,7 @@ public class HitBoxController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-  
+
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -47,11 +47,12 @@ public class HitBoxController : MonoBehaviour
             if (Input.GetKey("l")){
                 L_anim.SetTrigger("hitL");
             }
-            UI.AddScore(1);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         other.gameObject.GetComponent<NoteBehavior>().onMiss(UI);
+        Debug.Log("waaaaat");
+        other.GetComponent<SpriteRenderer>().color /= 2;
     }
 }

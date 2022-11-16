@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoteSpawner : MonoBehaviour {
+public sealed class NoteSpawner : MonoBehaviour {
 
     // Start is called before the first frame update
     public Camera gameCamera;
@@ -21,11 +22,21 @@ public class NoteSpawner : MonoBehaviour {
     private Song song;
     private Queue<Note> noteQueue;
 
+    //public float songPos { get; private set; }
+    //public float[] tempDifficulties { get; } = new float[] { .02f, .05f, .1f, .2f };
+
     /** 
      * Initializes constants based on camera height. Then, checks if the song has finished initializing.
      */
+    //public static NoteSpawner instance = null;
+
+    //private void Awake() {
+    //    instance = this;
+    //}
+
     void Start() {
         setupCameraHeight();
+        setupHitboxHeight();
         setupLanePositions();
         setupNoteQueue();
     }
@@ -38,8 +49,7 @@ public class NoteSpawner : MonoBehaviour {
     void Update() {
         if (noteQueue == null) noteQueue = song.GetNoteQueue();
         if (noteQueue == null) return;
-        float songPos = (float)(AudioSettings.dspTime - song.getElapsedTime());
-        while (noteQueue.Count > 0 && songPos >= noteQueue.Peek().GetTimePos() - secondsTillHit) {
+        while (noteQueue.Count > 0 && getSongPos() >= noteQueue.Peek().GetTimePos() - secondsTillHit) {
             Note note = noteQueue.Dequeue();
             if (note.GetNoteType().Equals("text")) {
                 spawnBurstNote(note);
@@ -47,6 +57,10 @@ public class NoteSpawner : MonoBehaviour {
                 spawnNote(note);
             }
         }
+    }
+
+    internal float getSongPos() {
+        return (float)(AudioSettings.dspTime - song.getElapsedTime());
     }
 
     /**
@@ -57,6 +71,13 @@ public class NoteSpawner : MonoBehaviour {
         float heightWithOffset = gameCamera.ViewportToWorldPoint(new Vector2(0, 1)).y - hitboxes[0].transform.position.y;
         noteVelocity = heightWithOffset / secondsOnScreen; // subtract some mythical number // and then recalculate secondsTillHit
         secondsTillHit = height / noteVelocity;
+    }
+
+    private void setupHitboxHeight() {
+        foreach (GameObject hitbox in hitboxes) {
+            hitbox.GetComponent<BoxCollider2D>().size = new Vector2(
+                1, 2 * Timings.timingBuckets[Timings.timingBuckets.Length - 1] * noteVelocity);
+        }
     }
 
     /**
@@ -89,15 +110,16 @@ public class NoteSpawner : MonoBehaviour {
         GameObject justSpawnedNote = Instantiate(notePrefab);
         justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
         justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
+        justSpawnedNote.GetComponent<NoteBehavior>().timeStamp = note.GetTimePos();
+        justSpawnedNote.GetComponent<NoteBehavior>().noteSpawner = this;
     }
 
     public void spawnBurstNote(Note note) {
         GameObject justSpawnedNote = Instantiate(burstNotePrefab);
-        Debug.Log(note.GetText());
-        Debug.Log(note.GetBurstLength());
         justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
         justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
         justSpawnedNote.GetComponent<burstNote>().text = note.GetText();
         justSpawnedNote.GetComponent<burstNote>().burstLength = note.GetBurstLength();
+        justSpawnedNote.GetComponent<burstNote>().timeStamp = note.GetTimePos();
     }
 }   

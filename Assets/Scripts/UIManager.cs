@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField]
     private Text _scoreText;
-    private int score;
+    private float score;
 
     [SerializeField]
     private Text displayedTextBurst;
@@ -67,7 +67,7 @@ public class UIManager : MonoBehaviour
         return Input.GetKey(key.ToString());
     }
 
-    public void AddScore(int points)
+    public void AddScore(float points)
     {
         score += points;
         updateScore();
@@ -75,7 +75,7 @@ public class UIManager : MonoBehaviour
 
     public void updateScore()
     {
-        _scoreText.text = "Score: " + score.ToString();
+        _scoreText.text = "Score: " + ((int)score).ToString();
     }
 
     public void textBurst(float secs, string text) {
