@@ -11,7 +11,7 @@ public class NoteBehavior : MonoBehaviour
 
     public virtual void onHit(UIManager UI) {
         int timingBucket = getTimingBucket();
-        if (timingBucket > Timings.timingBuckets.Length) {
+        if (timingBucket >= Timings.bucketScore.Length) {
             return;
         }
         hit = true;
