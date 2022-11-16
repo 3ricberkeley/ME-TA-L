@@ -113,6 +113,7 @@ public class NoteSpawner : MonoBehaviour {
         GameObject justSpawnedNote = Instantiate(holdNotePrefab);
 
         justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
+        Debug.Log(justSpawnedNote.transform.position);
         justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
         justSpawnedNote.GetComponent<holdNote>().length = note.GetHoldLength();
     }

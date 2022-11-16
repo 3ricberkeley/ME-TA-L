@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Score
   - burst
+  - hold
   layers:
   - Default
   - TransparentFX
