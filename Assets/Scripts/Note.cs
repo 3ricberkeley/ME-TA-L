@@ -14,7 +14,7 @@ public class Note {
     string type;
     string text;
     float burstLength;
-    float holdLength;
+    float holdTime;
     #endregion
 
     #region Note_functions
@@ -43,8 +43,8 @@ public class Note {
             string strTime = args[3];
             string pattern = @"^(\[){1}(.*?)(\]){1}$";
             strTime = Regex.Replace(strTime, pattern, "$2");
-            holdLength = (float)TimeSpan.Parse(strTime).TotalSeconds - timePos;
-            Debug.Log("Hold: " + holdLength);
+            holdTime = (float)TimeSpan.Parse(strTime).TotalSeconds - timePos;
+            Debug.Log("Hold: " + holdTime);
         }
     }
 
@@ -74,9 +74,9 @@ public class Note {
         return burstLength;
     }
 
-    public float GetHoldLength()
+    public float GetHoldTime()
     {
-        return holdLength;
+        return holdTime;
     }
     #endregion
 }

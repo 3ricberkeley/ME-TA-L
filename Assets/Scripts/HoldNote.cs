@@ -22,6 +22,7 @@ public class holdNote : NoteBehavior
     // Update is called once per frame
     void Update()
     {
+        //length = noteVelocity * time
         scaleChange = new Vector3(0.1f, 0.1f * length, 1f);
         this.transform.GetChild(0).transform.localScale = scaleChange;
     }

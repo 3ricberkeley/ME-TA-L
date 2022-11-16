@@ -115,6 +115,6 @@ public class NoteSpawner : MonoBehaviour {
         justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
         Debug.Log(justSpawnedNote.transform.position);
         justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
-        justSpawnedNote.GetComponent<holdNote>().length = note.GetHoldLength();
+        justSpawnedNote.GetComponent<holdNote>().length = note.GetHoldTime() * noteVelocity;
     }
 }   
