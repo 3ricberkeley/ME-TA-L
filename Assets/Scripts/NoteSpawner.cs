@@ -75,7 +75,9 @@ public sealed class NoteSpawner : MonoBehaviour {
 
     private void setupHitboxHeight() {
         foreach (GameObject hitbox in hitboxes) {
-            hitbox.GetComponent<BoxCollider2D>().size = new Vector2(
+            //hitbox.GetComponent<BoxCollider2D>().size = new Vector2(
+            //    1, 2 * Timings.timingBuckets[Timings.timingBuckets.Length - 1] * noteVelocity);
+            hitbox.GetComponent<HitBoxController>().hitboxSize = new Vector2(
                 1, 2 * Timings.timingBuckets[Timings.timingBuckets.Length - 1] * noteVelocity);
         }
     }
