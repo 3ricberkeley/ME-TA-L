@@ -827,6 +827,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 0}
+  songAS: {fileID: 0}
+--- !u!1001 &1154353849
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7361909844835426861, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
+      propertyPath: m_Name
+      value: ClockStrikesAS
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361909844835426863, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361909844835426863, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361909844835426863, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361909844835426863, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361909844835426863, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361909844835426863, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361909844835426863, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361909844835426863, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361909844835426863, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361909844835426863, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361909844835426863, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
+--- !u!82 &1154353850 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7361909844835426862, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
+  m_PrefabInstance: {fileID: 1154353849}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1207094026
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,6 +1038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 4460483222175614802, guid: 76f3c2c08e2509941af119b2bc55429d, type: 3}
+  songAS: {fileID: 1154353850}
 --- !u!1 &1599146742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,6 +1291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 4460483222175614802, guid: 76f3c2c08e2509941af119b2bc55429d, type: 3}
+  songAS: {fileID: 1154353850}
 --- !u!1 &2116148659
 GameObject:
   m_ObjectHideFlags: 0

@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 4460483222175614802, guid: 76f3c2c08e2509941af119b2bc55429d, type: 3}
-  audioSource: {fileID: 2095869144}
+  songAS: {fileID: 2095869144}
 --- !u!1 &242160726
 GameObject:
   m_ObjectHideFlags: 0
