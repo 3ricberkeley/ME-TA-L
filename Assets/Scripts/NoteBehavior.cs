@@ -17,10 +17,14 @@ public class NoteBehavior : MonoBehaviour
         hit = true;
         UI.AddScore(Timings.bucketScore[timingBucket]);
         UI.displayHitQualityIndicator(timingBucket);
+        if (timingBucket < Timings.bucketScore.Length - 1) UI.combo++;
         Destroy(this.gameObject);
     }
     public virtual void onMiss(UIManager UI) {
-        if (!hit) UI.reduceHealth(1);
+        if (!hit) {
+            UI.reduceHealth(1);
+            UI.combo = 0;
+        }
     }
 
     private int getTimingBucket() {

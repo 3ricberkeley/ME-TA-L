@@ -26,6 +26,9 @@ public class UIManager : MonoBehaviour
     private Text _healthText;
     private int health;
 
+    [SerializeField]
+    private Text comboText;
+
     public GameObject burstBG;
     public Animator animator;
 
@@ -113,6 +116,14 @@ public class UIManager : MonoBehaviour
     public void displayHitQualityIndicator(int i) {
         hqIndicatorText.text = Timings.bucketNames[i];
         mostRecentHitTime = Time.time;
+    }
 
+    private int _combo = 0;
+    internal int combo {
+        get => _combo;
+        set {
+            _combo = value;
+            comboText.text = "Combo: " + value.ToString();
+        }
     }
 }
