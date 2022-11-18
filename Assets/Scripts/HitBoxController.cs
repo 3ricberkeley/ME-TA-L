@@ -61,14 +61,6 @@ public class HitBoxController : MonoBehaviour
         if (bestHit != null) bestHit.GetComponent<NoteBehavior>().onHit(UI);
     }
 
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (Input.GetKey(key))
-        {
-
-        }
-    }
-
     private void OnTriggerExit2D(Collider2D other) {
         other.gameObject.GetComponent<NoteBehavior>().onMiss(UI);
         other.GetComponent<SpriteRenderer>().color /= 2;

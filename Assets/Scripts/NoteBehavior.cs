@@ -16,6 +16,7 @@ public class NoteBehavior : MonoBehaviour
         }
         hit = true;
         UI.AddScore(Timings.bucketScore[timingBucket]);
+        UI.displayHitQualityIndicator(timingBucket);
         Destroy(this.gameObject);
     }
     public virtual void onMiss(UIManager UI) {

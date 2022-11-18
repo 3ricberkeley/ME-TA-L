@@ -17,6 +17,12 @@ public class UIManager : MonoBehaviour
     private float burstTimer;
 
     [SerializeField]
+    private Text hqIndicatorText;
+    [SerializeField]
+    private float hqIndicatorDecay;
+    private float mostRecentHitTime = 0;
+
+    [SerializeField]
     private Text _healthText;
     private int health;
 
@@ -55,8 +61,21 @@ public class UIManager : MonoBehaviour
             burstTimerText.text = string.Empty;
             animator.SetBool("burst", false);
         }
-
+        handleHqIndicatorOpacity();
     }
+
+    private void handleHqIndicatorOpacity() {
+        Debug.Log(Color.Lerp(
+                Timings.indicatorColor,
+                Color.clear,
+                (Time.time - mostRecentHitTime) / hqIndicatorDecay));
+        hqIndicatorText.color = 
+            Color.Lerp(
+                Timings.indicatorColor, 
+                Color.clear, 
+                (Time.time - mostRecentHitTime) / hqIndicatorDecay);
+    }
+
     private bool isKeyTyped(char key) {
         if (key.Equals(' ')) {
             return Input.GetKey(KeyCode.Space);
@@ -90,5 +109,10 @@ public class UIManager : MonoBehaviour
         if (health <= 0) {
             Debug.Log("game over or smt idk");
         }
+    }
+    public void displayHitQualityIndicator(int i) {
+        hqIndicatorText.text = Timings.bucketNames[i];
+        mostRecentHitTime = Time.time;
+
     }
 }
