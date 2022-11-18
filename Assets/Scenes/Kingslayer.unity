@@ -1060,7 +1060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 2011279485}
-  audioSource: {fileID: 972732569}
+  songAS: {fileID: 972732569}
 --- !u!1 &1480943597
 GameObject:
   m_ObjectHideFlags: 0

@@ -86,6 +86,7 @@ public class Song : MonoBehaviour
         // Beats since the song started
         songPosInBeats = songPos / secPerBeat;
     }
+
     public float getSongPos() {
         return songPos;
     }

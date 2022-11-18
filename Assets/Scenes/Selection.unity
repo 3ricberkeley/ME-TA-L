@@ -1322,7 +1322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 2096005390}
-  audioSource: {fileID: 0}
+  songAS: {fileID: 0}
 --- !u!1 &1553866741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,6 +1758,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuGO
       objectReference: {fileID: 0}
+    - target: {fileID: 4460483222175614802, guid: 76f3c2c08e2509941af119b2bc55429d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4460483222175614803, guid: 76f3c2c08e2509941af119b2bc55429d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1802,6 +1806,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4460483223634742980, guid: 76f3c2c08e2509941af119b2bc55429d, type: 3}
+      propertyPath: songAS
+      value: 
+      objectReference: {fileID: 286502922}
+    - target: {fileID: 4460483223755539657, guid: 76f3c2c08e2509941af119b2bc55429d, type: 3}
+      propertyPath: songAS
+      value: 
+      objectReference: {fileID: 286502922}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76f3c2c08e2509941af119b2bc55429d, type: 3}
 --- !u!1 &2096005390 stripped

@@ -22,6 +22,8 @@ public class SongSelection : MonoBehaviour
     public AudioSource kingslayerAS;
     public AudioSource mozaikRoleAS;
 
+    public SceneSwitcher scSw;
+
     private AudioSource currAS;
     #endregion
 
@@ -154,6 +156,7 @@ public class SongSelection : MonoBehaviour
             }
             mozaikRoleButton.Select();
         }
+        scSw.songAS = currAS;
     }
 
     #endregion
@@ -183,6 +186,7 @@ public class SongSelection : MonoBehaviour
         // Set the current selected song to the top of the list
         currSelected = 0;
         currAS = clockStrikesAS;
+        scSw.songAS = currAS;
         currAS.Play();
         SelectTab(songList[currSelected]);
     }

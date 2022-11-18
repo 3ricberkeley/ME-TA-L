@@ -1679,7 +1679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 1378999483}
-  audioSource: {fileID: 7361909844067042349}
+  songAS: {fileID: 7361909844067042349}
 --- !u!1001 &1172053423025671779
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,11 @@ public class SceneSwitcher : MonoBehaviour
     public GameObject menu;
     // Bool indicating whether or not the menu is open
     private bool menuIsOpen;
+    #endregion
+
+    #region Song_vars
+    // Song game object
+    public AudioSource songAS;
     // Song name
     private string songName;
     #endregion
@@ -57,23 +62,27 @@ public class SceneSwitcher : MonoBehaviour
     void Start()
     {
         menuIsOpen = false;
-        songName = "ClockStrikes";
+        songName = songAS.name.Replace("AS", "");
+        Debug.Log(songName);
     }
 
     // After the song ends, wait 5~ seconds and return to the selection scene
     void FixedUpdate()
     {
-        // Debug.Log(Time.timeSinceLevelLoad.ToString());
+        //Debug.Log(Time.timeSinceLevelLoad.ToString());
         if (songName == "ClockStrikes" && (Time.timeSinceLevelLoad >= 70.0f && Time.timeSinceLevelLoad < 70.015f))
         {
+            Debug.Log("Switch scene on clock strikes");
             LoadSelection();
         }
         if (songName == "Kingslayer" && (Time.timeSinceLevelLoad >= 165.0f && Time.timeSinceLevelLoad < 165.25f))
         {
+            Debug.Log("Switch scene on kingslayer");
             LoadSelection();
         }
-        if (songName == "Mozaik Role" && (Time.timeSinceLevelLoad >= 108.0f && Time.timeSinceLevelLoad < 108.25f))
+        if (songName == "Mozaik Role" && (Time.timeSinceLevelLoad >= 108.0f && Time.timeSinceLevelLoad < 108.5f))
         {
+            Debug.Log("Switch scene on mozaik role");
             LoadSelection();
         }
     }

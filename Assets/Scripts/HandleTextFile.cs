@@ -9,7 +9,7 @@ public class HandleTextFile : MonoBehaviour
     public static void WriteString(float t)
     {
         string path = "Assets/Resources/test.txt";
-        //string path = "Assets/Resources/mozaikeasy.txt";
+        //string path = "Assets/Resources/editing.txt";
         //Write some text to the test.txt file
         StreamWriter writer = new StreamWriter(path, true);
         writer.WriteLine(t.ToString());
@@ -22,7 +22,12 @@ public class HandleTextFile : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("a") || Input.GetKeyDown("s") || Input.GetKeyDown("k") || Input.GetKeyDown("l"))
+        //if (Input.GetKeyDown("a") || Input.GetKeyDown("s") || Input.GetKeyDown("k") || Input.GetKeyDown("l"))
+        //{
+        //    WriteString(Time.timeSinceLevelLoad);
+        //}
+
+        if (Input.GetKeyDown("j"))
         {
             WriteString(Time.timeSinceLevelLoad);
         }
