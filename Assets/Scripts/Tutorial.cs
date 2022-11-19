@@ -24,9 +24,30 @@ public class Tutorial : MonoBehaviour
     public GameObject textMask;
     // Completed GameObject
     public GameObject completed;
+    // Welcome mask
+    public GameObject welcome;
+    // Feel mask
+    public GameObject feel;
+    // Lanes mask
+    public GameObject lanes;
     #endregion
 
     #region Pause_funcs
+    // IEnumerator for the welcome msg
+    IEnumerator WelcomeCoroutine()
+    {
+        ToggleMask("welcome", true);
+        yield return new WaitForSeconds(1);
+        ToggleMask("welcome", false);
+        ToggleMask("feel", true);
+        yield return new WaitForSeconds(2);
+        ToggleMask("feel", false);
+        yield return new WaitForSeconds(2);
+        ToggleMask("lanes", true);
+        yield return new WaitForSeconds(2);
+        ToggleMask("lanes", false);
+    }
+
     // Change the visibility of the type UI mask
     void ToggleMask(string type, bool state)
     {
@@ -41,6 +62,15 @@ public class Tutorial : MonoBehaviour
         else if (type == "text")
         {
             textMask.gameObject.SetActive(state);
+        } else if (type == "welcome")
+        {
+            welcome.gameObject.SetActive(state);
+        } else if (type == "feel")
+        {
+            feel.gameObject.SetActive(state);
+        } else if (type == "lanes")
+        {
+            lanes.gameObject.SetActive(state);
         }
     }
 
@@ -75,15 +105,16 @@ public class Tutorial : MonoBehaviour
     {
         isPaused = false;
         noteType = "normal";
+        StartCoroutine(WelcomeCoroutine());
     }
 
     // Pause the tutorial at certain timestamps
     void FixedUpdate()
     {
         //Debug.Log((Time.timeSinceLevelLoad).ToString());
-        PauseGame(2.8f, "normal");
-        PauseGame(14.7f, "hold");
-        PauseGame(30.3f, "text");
+        PauseGame(2.7f + 7.0f, "normal");
+        PauseGame(12.5f + 7.0f, "hold");
+        PauseGame(30.15f, "text");
         StartCoroutine(CompletedTutorial());
     }
 
