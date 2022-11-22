@@ -839,6 +839,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClockStrikesAS
       objectReference: {fileID: 0}
+    - target: {fileID: 7361909844835426861, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7361909844835426863, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
       propertyPath: m_RootOrder
       value: 3
