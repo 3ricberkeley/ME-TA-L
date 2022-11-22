@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class HitBoxController : MonoBehaviour
     public Animator K_anim;
     public Animator L_anim;
 
+    internal Vector2 hitboxSize { get; set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,21 +28,11 @@ public class HitBoxController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-  
-    }
+        if (Input.GetKeyDown(key)) {
 
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (Input.GetKey(key))
-        {
-            if (other.gameObject.CompareTag("burst")) {
+            castForHits();
 
-            }
-
-            other.gameObject.GetComponent<NoteBehavior>().onHit(UI);
-
-            if (Input.GetKey("a"))
-            {
+            if (Input.GetKey("a")) {
                 A_anim.SetTrigger("hitA");
             }
             if (Input.GetKey("s")) {
@@ -48,10 +41,28 @@ public class HitBoxController : MonoBehaviour
             if (Input.GetKey("k")) {
                 K_anim.SetTrigger("hitK");
             }
-            if (Input.GetKey("l")){
+            if (Input.GetKey("l")) {
                 L_anim.SetTrigger("hitL");
             }
-            UI.AddScore(1);
         }
+    }
+    private void castForHits() {
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, hitboxSize, 0f, Vector2.zero);
+        Transform bestHit = null;
+        float bestDistance = float.PositiveInfinity;
+        foreach (RaycastHit2D hit in hits) {
+            float distance = Vector2.Distance(hit.transform.position, transform.position);
+            if (!hit.transform.CompareTag("HitBox") && distance < bestDistance) {
+                bestDistance = distance;
+                bestHit = hit.transform;
+            }
+        }
+        Debug.Log(bestHit);
+        if (bestHit != null) bestHit.GetComponent<NoteBehavior>().onHit(UI);
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        other.gameObject.GetComponent<NoteBehavior>().onMiss(UI);
+        other.GetComponent<SpriteRenderer>().color /= 2;
     }
 }

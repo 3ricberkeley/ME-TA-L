@@ -41,6 +41,7 @@ public class SceneSwitcher : MonoBehaviour
     // Transition to the song selection scene
     public void LoadSelection()
     {
+        Debug.Log("loading select screen");
         SceneManager.LoadScene("Selection");
     }
 

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3828281848918643954}
   - component: {fileID: 3828281848918643953}
+  - component: {fileID: 1528955853097577119}
   m_Layer: 0
   m_Name: NoteSpawner
   m_TagString: Untagged
@@ -54,3 +55,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   secondsOnScreen: 2
+--- !u!114 &1528955853097577119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3828281848918643952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2fac8feec4e3645abaca298500b513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: {fileID: 0}
