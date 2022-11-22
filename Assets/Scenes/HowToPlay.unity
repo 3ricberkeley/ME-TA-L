@@ -2028,6 +2028,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 807009761}
+    - target: {fileID: 742768230969102938, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 742768230969102939, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -2064,6 +2068,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2320299355658243375, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2895094164577227462, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -2092,6 +2100,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -120
       objectReference: {fileID: 0}
+    - target: {fileID: 6439125739440060683, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 6788997066367221580, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 110
@@ -2111,6 +2123,10 @@ PrefabInstance:
     - target: {fileID: 8098025078412652681, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8098775503971395146, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
+      propertyPath: m_RootOrder
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8593459546093049827, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
       propertyPath: m_AnchoredPosition.x

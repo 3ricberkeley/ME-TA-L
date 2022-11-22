@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 6478995249844763798}
   - component: {fileID: 6478995249844763796}
   - component: {fileID: 6478995249844763799}
-  - component: {fileID: 6478995249844763797}
-  - component: {fileID: 6478995249844763802}
   m_Layer: 0
   m_Name: burstBG
   m_TagString: Untagged
@@ -107,34 +105,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6478995249844763797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6478995249844763793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ba7fa26a929fc4791ed6f04ed0646b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: 
-  burstLength: 0
---- !u!114 &6478995249844763802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6478995249844763793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d51ce9df80e8d94d8832b0c3e465849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scoreText: {fileID: 0}
-  displayedTextBurst: {fileID: 0}
-  burstTimerText: {fileID: 0}
-  burstBG: {fileID: 6478995249844763793}
-  animator: {fileID: 6478995249844763796}

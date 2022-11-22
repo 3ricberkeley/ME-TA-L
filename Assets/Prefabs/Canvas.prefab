@@ -1925,18 +1925,6 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6478995249844763802, guid: aeaec222cfe954190b48eb14ed346387, type: 3}
-      propertyPath: _scoreText
-      value: 
-      objectReference: {fileID: 742768231728248433}
-    - target: {fileID: 6478995249844763802, guid: aeaec222cfe954190b48eb14ed346387, type: 3}
-      propertyPath: burstTimerText
-      value: 
-      objectReference: {fileID: 742768231215486812}
-    - target: {fileID: 6478995249844763802, guid: aeaec222cfe954190b48eb14ed346387, type: 3}
-      propertyPath: displayedTextBurst
-      value: 
-      objectReference: {fileID: 742768231482402328}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeaec222cfe954190b48eb14ed346387, type: 3}
 --- !u!4 &7327542598949974245 stripped
