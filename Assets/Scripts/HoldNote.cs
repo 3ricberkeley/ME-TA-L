@@ -26,4 +26,9 @@ public class holdNote : NoteBehavior
         scaleChange = new Vector3(0.1f, 0.1f * length, 1f);
         this.transform.GetChild(0).transform.localScale = scaleChange;
     }
+
+    public override void onHit(UIManager UI)
+    {
+        this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+    }
 }
