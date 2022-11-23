@@ -57,7 +57,7 @@ public class HitBoxController : MonoBehaviour
                 bestHit = hit.transform;
             }
         }
-        Debug.Log(bestHit);
+        // Debug.Log(bestHit);
         if (bestHit != null) bestHit.GetComponent<NoteBehavior>().onHit(UI);
     }
 

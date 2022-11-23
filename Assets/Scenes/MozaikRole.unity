@@ -319,6 +319,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 543369297004574661, guid: 2dca1fb6140ac2a40befd2c3711a2727, type: 3}
   m_PrefabInstance: {fileID: 1168501059}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1168501061 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -576151867828568231, guid: 2dca1fb6140ac2a40befd2c3711a2727, type: 3}
+  m_PrefabInstance: {fileID: 1168501059}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1202866817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -387,6 +392,10 @@ PrefabInstance:
       propertyPath: menu
       value: 
       objectReference: {fileID: 2011279485}
+    - target: {fileID: 1528955853097577119, guid: 5be7736508b342843bed2ad55382fa62, type: 3}
+      propertyPath: songAS
+      value: 
+      objectReference: {fileID: 1168501061}
     - target: {fileID: 3828281848918643952, guid: 5be7736508b342843bed2ad55382fa62, type: 3}
       propertyPath: m_Name
       value: NoteSpawner

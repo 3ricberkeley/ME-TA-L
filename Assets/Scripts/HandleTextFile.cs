@@ -8,9 +8,9 @@ public class HandleTextFile : MonoBehaviour
 {
     public static void WriteString(float t)
     {
-        string path = "Assets/Resources/test.txt";
-        //string path = "Assets/Resources/editing.txt";
-        //Write some text to the test.txt file
+        // string path = "Assets/Resources/MatthewTimestamps.txt";
+        string path = "Assets/Resources/HaileyTimestamps.txt";
+        //Write some text to the file
         StreamWriter writer = new StreamWriter(path, true);
         writer.WriteLine(t.ToString());
         writer.Close();

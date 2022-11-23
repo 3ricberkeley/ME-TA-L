@@ -68,10 +68,10 @@ public class UIManager : MonoBehaviour
     }
 
     private void handleHqIndicatorOpacity() {
-        Debug.Log(Color.Lerp(
-                Timings.indicatorColor,
-                Color.clear,
-                (Time.time - mostRecentHitTime) / hqIndicatorDecay));
+        // Debug.Log(Color.Lerp(
+        //         Timings.indicatorColor,
+        //         Color.clear,
+        //         (Time.time - mostRecentHitTime) / hqIndicatorDecay));
         hqIndicatorText.color = 
             Color.Lerp(
                 Timings.indicatorColor, 

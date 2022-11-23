@@ -73,17 +73,17 @@ public class SceneSwitcher : MonoBehaviour
         //Debug.Log(Time.timeSinceLevelLoad.ToString());
         if (songName == "ClockStrikes" && (Time.timeSinceLevelLoad >= 70.0f && Time.timeSinceLevelLoad < 70.015f))
         {
-            Debug.Log("Switch scene on clock strikes");
+            // Debug.Log("Switch scene on clock strikes");
             LoadSelection();
         }
         if (songName == "Kingslayer" && (Time.timeSinceLevelLoad >= 165.0f && Time.timeSinceLevelLoad < 165.25f))
         {
-            Debug.Log("Switch scene on kingslayer");
+            // Debug.Log("Switch scene on kingslayer");
             LoadSelection();
         }
-        if (songName == "Mozaik Role" && (Time.timeSinceLevelLoad >= 108.0f && Time.timeSinceLevelLoad < 108.5f))
+        if (songName == "Mozaik Role" && (Time.timeSinceLevelLoad >= 125.0f && Time.timeSinceLevelLoad < 125.5f))
         {
-            Debug.Log("Switch scene on mozaik role");
+            // Debug.Log("Switch scene on mozaik role");
             LoadSelection();
         }
     }

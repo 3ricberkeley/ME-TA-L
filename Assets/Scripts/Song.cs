@@ -46,7 +46,7 @@ public class Song : MonoBehaviour
         string name = gameObject.name;
         name = name.Replace("Song", "");
         name += difficulty + "Timestamps.txt";
-        Debug.Log(name);
+        // Debug.Log(name);
 
         return Assets.Scripts.SongLoader.readNotes("Assets" + Path.DirectorySeparatorChar + name);
     }
