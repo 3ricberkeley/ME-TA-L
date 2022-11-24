@@ -21,6 +21,20 @@ public class SceneSwitcher : MonoBehaviour
     private string songName;
     #endregion
 
+    #region Canvas_vars
+    private GameObject canvas;
+    #endregion
+
+    #region Transition_funcs
+    IEnumerator CompleteSong()
+    {
+        GameObject completed = canvas.gameObject.transform.GetChild(8).gameObject;
+        completed.SetActive(true);
+        yield return new WaitForSeconds(2.0f);
+        LoadSelection();
+    }
+    #endregion
+
     #region Pause_funcs
     // Pause the game
     void PauseGame()
@@ -65,26 +79,28 @@ public class SceneSwitcher : MonoBehaviour
         menuIsOpen = false;
         songName = songAS.name.Replace("AS", "");
         Debug.Log(songName);
+        canvas = GameObject.Find("Canvas");
+        // Debug.Log(canvas.gameObject.transform.childCount.ToString());
     }
 
     // After the song ends, wait 5~ seconds and return to the selection scene
     void FixedUpdate()
     {
-        //Debug.Log(Time.timeSinceLevelLoad.ToString());
-        if (songName == "ClockStrikes" && (Time.timeSinceLevelLoad >= 70.0f && Time.timeSinceLevelLoad < 70.015f))
+        // Debug.Log(Time.timeSinceLevelLoad.ToString());
+        if (songName == "ClockStrikes" && (Time.timeSinceLevelLoad >= 62.0f && Time.timeSinceLevelLoad < 62.25f))
         {
             // Debug.Log("Switch scene on clock strikes");
-            LoadSelection();
+            StartCoroutine(CompleteSong());
         }
-        if (songName == "Kingslayer" && (Time.timeSinceLevelLoad >= 165.0f && Time.timeSinceLevelLoad < 165.25f))
+        if (songName == "Kingslayer" && (Time.timeSinceLevelLoad >= 164.5f && Time.timeSinceLevelLoad < 164.75f))
         {
             // Debug.Log("Switch scene on kingslayer");
-            LoadSelection();
+            StartCoroutine(CompleteSong());
         }
-        if (songName == "Mozaik Role" && (Time.timeSinceLevelLoad >= 125.0f && Time.timeSinceLevelLoad < 125.5f))
+        if (songName == "MozaikRole" && (Time.timeSinceLevelLoad >= 85.0f && Time.timeSinceLevelLoad < 85.25f))
         {
             // Debug.Log("Switch scene on mozaik role");
-            LoadSelection();
+            StartCoroutine(CompleteSong());
         }
     }
 
