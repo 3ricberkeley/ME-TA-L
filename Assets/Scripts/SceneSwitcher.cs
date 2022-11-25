@@ -33,6 +33,13 @@ public class SceneSwitcher : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         LoadSelection();
     }
+
+    public static void FailSong()
+    {
+        GameObject gameOver = Instantiate(Resources.Load<GameObject>("Game Over"));
+        Time.timeScale = 0.0f;
+        AudioListener.pause = true;
+    }
     #endregion
 
     #region Pause_funcs
@@ -52,10 +59,16 @@ public class SceneSwitcher : MonoBehaviour
     #endregion
 
     #region Scene_funcs
+    // Reload the current song's scene
+    public void ReloadSong()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     // Transition to the song selection scene
     public void LoadSelection()
     {
-        Debug.Log("loading select screen");
+        // Debug.Log("loading select screen");
         SceneManager.LoadScene("Selection");
     }
 
@@ -76,6 +89,15 @@ public class SceneSwitcher : MonoBehaviour
     // Initialize variables
     void Start()
     {
+        GameObject menuGO = GameObject.Find("MenuGO");
+        if (menuGO != null)
+        {
+            GameObject menuCanvas = menuGO.transform.GetChild(0).gameObject;
+            AudioSource currAS = GameObject.Find(SceneManager.GetActiveScene().name + "AS").GetComponent<AudioSource>();
+            menuCanvas.transform.GetChild(1).GetComponent<SceneSwitcher>().songAS = currAS;
+            menuCanvas.transform.GetChild(2).GetComponent<SceneSwitcher>().songAS = currAS;
+        }
+
         menuIsOpen = false;
         songName = songAS.name.Replace("AS", "");
         Debug.Log(songName);

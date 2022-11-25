@@ -111,6 +111,7 @@ public class UIManager : MonoBehaviour
         _healthText.text = "Helth: " + health.ToString();
         if (health <= 0) {
             Debug.Log("game over or smt idk");
+            SceneSwitcher.FailSong();
         }
     }
     public void displayHitQualityIndicator(int i) {
