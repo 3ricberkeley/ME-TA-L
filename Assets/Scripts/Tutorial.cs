@@ -112,8 +112,8 @@ public class Tutorial : MonoBehaviour
     void FixedUpdate()
     {
         //Debug.Log((Time.timeSinceLevelLoad).ToString());
-        PauseGame(2.7f + 7.0f, "normal");
-        PauseGame(12.5f + 7.0f, "hold");
+        PauseGame(2.76f + 7.0f, "normal");
+        PauseGame(12.66f + 7.0f, "hold");
         PauseGame(30.15f, "text");
         StartCoroutine(CompletedTutorial());
     }

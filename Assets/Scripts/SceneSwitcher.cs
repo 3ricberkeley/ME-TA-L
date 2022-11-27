@@ -100,7 +100,7 @@ public class SceneSwitcher : MonoBehaviour
 
         menuIsOpen = false;
         songName = songAS.name.Replace("AS", "");
-        Debug.Log(songName);
+        // Debug.Log(songName);
         canvas = GameObject.Find("Canvas");
         // Debug.Log(canvas.gameObject.transform.childCount.ToString());
     }
