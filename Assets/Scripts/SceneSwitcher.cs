@@ -36,9 +36,12 @@ public class SceneSwitcher : MonoBehaviour
 
     public static void FailSong()
     {
-        GameObject gameOver = Instantiate(Resources.Load<GameObject>("Game Over"));
-        Time.timeScale = 0.0f;
-        AudioListener.pause = true;
+        if (GameObject.Find("Game Over(Clone)") == null)
+        {
+            GameObject gameOver = Instantiate(Resources.Load<GameObject>("Game Over"));
+            Time.timeScale = 0.0f;
+            AudioListener.pause = true;
+        }
     }
     #endregion
 

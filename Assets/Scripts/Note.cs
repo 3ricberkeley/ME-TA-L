@@ -35,7 +35,9 @@ public class Note {
             // Debug.Log(text);
             // Debug.Log(burstLength);
         } else if (type.Equals("hold")) {
-            holdLength = (float)TimeSpan.Parse(args[3].Replace("[", "").Replace("]", "")).TotalSeconds;
+            holdLength = (float)
+                (TimeSpan.Parse(args[3].Replace("[", "").Replace("]", "")).TotalSeconds)
+                - GetTimePos();
             // Debug.Log(holdLength);
         }
     }
