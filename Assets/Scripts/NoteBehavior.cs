@@ -28,7 +28,6 @@ public class NoteBehavior : MonoBehaviour
     }
 
     private int getTimingBucket() {
-        Debug.Log(noteSpawner);
         float diff = Math.Abs(noteSpawner.getSongPos() - timeStamp);
         int bucketIndex = 0;
         for (;bucketIndex < Timings.timingBuckets.Length; bucketIndex++) {

@@ -9,6 +9,7 @@ public sealed class NoteSpawner : MonoBehaviour {
     public Camera gameCamera;
     public GameObject notePrefab;
     public GameObject burstNotePrefab;
+    public GameObject holdNotePrefab;
     public GameObject songObject;
     public GameObject[] hitboxes;
 
@@ -53,6 +54,8 @@ public sealed class NoteSpawner : MonoBehaviour {
             Note note = noteQueue.Dequeue();
             if (note.GetNoteType().Equals("text")) {
                 spawnBurstNote(note);
+            } else if (note.GetNoteType().Equals("hold")) {
+                spawnHoldNote(note);
             } else {
                 spawnNote(note);
             }
@@ -123,6 +126,14 @@ public sealed class NoteSpawner : MonoBehaviour {
         justSpawnedNote.GetComponent<burstNote>().text = note.GetText();
         justSpawnedNote.GetComponent<burstNote>().burstLength = note.GetBurstLength();
         justSpawnedNote.GetComponent<burstNote>().timeStamp = note.GetTimePos();
+        justSpawnedNote.GetComponent<NoteBehavior>().noteSpawner = this;
+    }
+
+    public void spawnHoldNote(Note note) {
+        GameObject justSpawnedNote = Instantiate(holdNotePrefab);
+        justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
+        justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
+        justSpawnedNote.GetComponent<NoteBehavior>().timeStamp = note.GetTimePos();
         justSpawnedNote.GetComponent<NoteBehavior>().noteSpawner = this;
     }
 }   
