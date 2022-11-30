@@ -31,8 +31,6 @@ public class Note {
         if (type.Equals("text")) {
             burstLength = (float)TimeSpan.Parse(args[3]).TotalSeconds - timePos;
             text = string.Join(" ", args[4..]);
-            Debug.Log(text);
-            Debug.Log(burstLength);
         }
     }
 
