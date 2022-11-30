@@ -123,5 +123,6 @@ public sealed class NoteSpawner : MonoBehaviour {
         justSpawnedNote.GetComponent<burstNote>().text = note.GetText();
         justSpawnedNote.GetComponent<burstNote>().burstLength = note.GetBurstLength();
         justSpawnedNote.GetComponent<burstNote>().timeStamp = note.GetTimePos();
+        justSpawnedNote.GetComponent<NoteBehavior>().noteSpawner = this;
     }
 }   
