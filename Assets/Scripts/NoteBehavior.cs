@@ -34,6 +34,9 @@ public class NoteBehavior : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .75f);
                 gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color32(37, 147, 219, 125);
                 gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .75f);
+            } else if (gameObject.name.Equals("Fill"))
+            {
+                gameObject.GetComponent<SpriteRenderer>().color = new Color32(37, 147, 219, 125);
             }
         }
     }

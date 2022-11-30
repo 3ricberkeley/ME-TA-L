@@ -45,6 +45,11 @@ public class HitBoxController : MonoBehaviour
                 L_anim.SetTrigger("hitL");
             }
         }
+
+        if (Input.GetKeyUp("a") || Input.GetKeyUp("s") || Input.GetKeyUp("k") || Input.GetKeyUp("l"))
+        {
+            castForHolds();
+        }
     }
 
     private void castForHits() {
@@ -62,8 +67,31 @@ public class HitBoxController : MonoBehaviour
         if (bestHit != null) bestHit.GetComponent<NoteBehavior>().onHit(UI);
     }
 
+    private void castForHolds()
+    {
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, hitboxSize, 0f, Vector2.zero);
+        
+        ArrayList hitNames = new ArrayList();
+        foreach (RaycastHit2D hit in hits)
+        {
+            hitNames.Add(hit.transform.name);
+        }
+        bool endInHits = hitNames.Contains("End");
+
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.transform.name.Equals("Fill") && endInHits == false)
+            {
+                hit.transform.GetComponent<NoteBehavior>().onMiss(UI);
+                hit.transform.parent.transform.GetChild(1).GetComponent<SpriteRenderer>().color /= 2;
+            }
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D other) {
-        other.gameObject.GetComponent<NoteBehavior>().onMiss(UI);
+        if (!(other.transform.name.Equals("Fill") || other.transform.name.Equals("End"))) {
+            other.gameObject.GetComponent<NoteBehavior>().onMiss(UI);
+        }
         other.GetComponent<SpriteRenderer>().color /= 2;
     }
 }
