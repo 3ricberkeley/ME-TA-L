@@ -57,7 +57,7 @@ public sealed class NoteSpawner : MonoBehaviour {
             } else if (note.GetNoteType().Equals("hold")) {
                 spawnHoldNote(note);
             } else {
-                spawnNote(note);
+                spawnRegularNote(note);
             }
         }
     }
@@ -110,6 +110,13 @@ public sealed class NoteSpawner : MonoBehaviour {
 
     private GameObject spawnNote(GameObject noteType, Note note) {
         GameObject justSpawnedNote = Instantiate(noteType);
+
+        if (noteType.name.Replace("NotePrefab", "").Equals("hold"))
+        {
+            justSpawnedNote.GetComponent<HoldNote>().holdLength = note.GetHoldLength();
+            justSpawnedNote.GetComponent<HoldNote>().AdjustHold();
+        }
+
         justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
         justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
         justSpawnedNote.GetComponent<NoteBehavior>().timeStamp = note.GetTimePos();

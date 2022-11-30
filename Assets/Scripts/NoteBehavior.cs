@@ -18,12 +18,23 @@ public class NoteBehavior : MonoBehaviour
         UI.AddScore(Timings.bucketScore[timingBucket]);
         UI.displayHitQualityIndicator(timingBucket);
         if (timingBucket < Timings.bucketScore.Length - 1) UI.combo++;
-        Destroy(this.gameObject);
+        if (!gameObject.name.Equals("hold(Clone)"))
+        {
+            Destroy(this.gameObject);
+        }
     }
+
     public virtual void onMiss(UIManager UI) {
         if (!hit) {
             UI.reduceHealth(1);
             UI.combo = 0;
+
+            if (gameObject.name.Equals("hold(Clone)"))
+            {
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .75f);
+                gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color32(37, 147, 219, 125);
+                gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .75f);
+            }
         }
     }
 

@@ -46,6 +46,7 @@ public class HitBoxController : MonoBehaviour
             }
         }
     }
+
     private void castForHits() {
         RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, hitboxSize, 0f, Vector2.zero);
         Transform bestHit = null;
