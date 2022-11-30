@@ -108,32 +108,30 @@ public sealed class NoteSpawner : MonoBehaviour {
         noteQueue = song.GetNoteQueue();
     }
 
+    private GameObject spawnNote(GameObject noteType, Note note) {
+        GameObject justSpawnedNote = Instantiate(noteType);
+        justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
+        justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
+        justSpawnedNote.GetComponent<NoteBehavior>().timeStamp = note.GetTimePos();
+        justSpawnedNote.GetComponent<NoteBehavior>().noteSpawner = this;
+        return justSpawnedNote;
+    }
+
     /** 
      * Spawns a note from an instance of the Note datastructure.
      * */
-    public void spawnNote(Note note) {
-        GameObject justSpawnedNote = Instantiate(notePrefab);
-        justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
-        justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
-        justSpawnedNote.GetComponent<NoteBehavior>().timeStamp = note.GetTimePos();
-        justSpawnedNote.GetComponent<NoteBehavior>().noteSpawner = this;
+    public void spawnRegularNote(Note note) {
+        GameObject justSpawnedNote = spawnNote(notePrefab, note);
     }
 
     public void spawnBurstNote(Note note) {
-        GameObject justSpawnedNote = Instantiate(burstNotePrefab);
-        justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
-        justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
+        GameObject justSpawnedNote = spawnNote(burstNotePrefab, note);
+
         justSpawnedNote.GetComponent<burstNote>().text = note.GetText();
         justSpawnedNote.GetComponent<burstNote>().burstLength = note.GetBurstLength();
-        justSpawnedNote.GetComponent<burstNote>().timeStamp = note.GetTimePos();
-        justSpawnedNote.GetComponent<NoteBehavior>().noteSpawner = this;
     }
 
     public void spawnHoldNote(Note note) {
-        GameObject justSpawnedNote = Instantiate(holdNotePrefab);
-        justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
-        justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
-        justSpawnedNote.GetComponent<NoteBehavior>().timeStamp = note.GetTimePos();
-        justSpawnedNote.GetComponent<NoteBehavior>().noteSpawner = this;
+        GameObject justSpawnedNote = spawnNote(holdNotePrefab, note);
     }
 }   
