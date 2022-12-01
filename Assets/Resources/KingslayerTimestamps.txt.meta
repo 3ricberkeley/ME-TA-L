@@ -1,6 +1,8 @@
 fileFormatVersion: 2
-guid: 6f3ce7310e0788c4f9c9540b8bf2871e
-DefaultImporter:
+guid: 63578e43f9c3058459fb7286de0e81a0
+labels:
+- KingslayerEasy
+TextScriptImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 

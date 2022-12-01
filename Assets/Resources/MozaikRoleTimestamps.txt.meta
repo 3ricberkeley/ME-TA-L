@@ -1,6 +1,8 @@
 fileFormatVersion: 2
-guid: ef3463d7e544e0e4baf7862c4e4d4280
-PrefabImporter:
+guid: 10b213ef3e495fd48a8ee526c99cbc6f
+labels:
+- MozaikRoleEasy
+TextScriptImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
