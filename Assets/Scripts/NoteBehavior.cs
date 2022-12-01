@@ -7,7 +7,7 @@ public class NoteBehavior : MonoBehaviour
 {
     private bool hit = false;
     internal float timeStamp { private get; set; }
-    internal NoteSpawner noteSpawner { private get; set; }
+    public NoteSpawner noteSpawner { private get; set; }
 
     public virtual void onHit(UIManager UI) {
         int timingBucket = getTimingBucket();
@@ -18,7 +18,7 @@ public class NoteBehavior : MonoBehaviour
         UI.AddScore(Timings.bucketScore[timingBucket]);
         UI.displayHitQualityIndicator(timingBucket);
         if (timingBucket < Timings.bucketScore.Length - 1) UI.combo++;
-        if (!gameObject.name.Equals("hold(Clone)"))
+        if (gameObject.name.Equals("note(Clone)") || gameObject.name.Equals("burst(Clone)"))
         {
             Destroy(this.gameObject);
         }
@@ -42,6 +42,7 @@ public class NoteBehavior : MonoBehaviour
     }
 
     private int getTimingBucket() {
+        Debug.Log(noteSpawner);
         float diff = Math.Abs(noteSpawner.getSongPos() - timeStamp);
         int bucketIndex = 0;
         for (;bucketIndex < Timings.timingBuckets.Length; bucketIndex++) {

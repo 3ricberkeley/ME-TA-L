@@ -88,10 +88,22 @@ public class HitBoxController : MonoBehaviour
         }
     }
 
+    IEnumerator WaitToDestroyNote(GameObject note)
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(note);
+    }
+
     private void OnTriggerExit2D(Collider2D other) {
         if (!(other.transform.name.Equals("Fill") || other.transform.name.Equals("End"))) {
             other.gameObject.GetComponent<NoteBehavior>().onMiss(UI);
         }
+
+        if (other.transform.name.Equals("End"))
+        {
+            StartCoroutine(WaitToDestroyNote(other.transform.parent.gameObject));
+        }
+
         other.GetComponent<SpriteRenderer>().color /= 2;
     }
 }
