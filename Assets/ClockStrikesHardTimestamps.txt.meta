@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 956c87bfdcd76e946bc7aeb7ea522f33
+labels:
+- ClockStrikesHard
 TextScriptImporter:
   externalObjects: {}
   userData: 
