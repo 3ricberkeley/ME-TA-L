@@ -541,7 +541,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &312105028
 MonoBehaviour:
@@ -1025,7 +1025,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1201390367
 PrefabInstance:
@@ -1086,7 +1086,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 2ba7f0c58ac299443ba5169a1dc49a52, type: 3}
 --- !u!1 &1201390368 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2666656279542410317, guid: 2ba7f0c58ac299443ba5169a1dc49a52, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2232080737882199150, guid: 2ba7f0c58ac299443ba5169a1dc49a52, type: 3}
   m_PrefabInstance: {fileID: 1201390367}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1245202624 stripped
@@ -1372,7 +1372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 742768230969102934, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 742768230969102934, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2097,7 +2097,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: abfe3d0e0c67ea049973e871888ed29b, type: 3}
 --- !u!1 &1945239985 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2232080737882199150, guid: abfe3d0e0c67ea049973e871888ed29b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2666656279542410317, guid: abfe3d0e0c67ea049973e871888ed29b, type: 3}
   m_PrefabInstance: {fileID: 1945239984}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2010717090
@@ -2210,11 +2210,11 @@ PrefabInstance:
     - target: {fileID: 3828281848918643953, guid: 5be7736508b342843bed2ad55382fa62, type: 3}
       propertyPath: hitboxes.Array.data[2]
       value: 
-      objectReference: {fileID: 1201390368}
+      objectReference: {fileID: 1945239985}
     - target: {fileID: 3828281848918643953, guid: 5be7736508b342843bed2ad55382fa62, type: 3}
       propertyPath: hitboxes.Array.data[3]
       value: 
-      objectReference: {fileID: 1945239985}
+      objectReference: {fileID: 1201390368}
     - target: {fileID: 3828281848918643954, guid: 5be7736508b342843bed2ad55382fa62, type: 3}
       propertyPath: m_RootOrder
       value: 10
