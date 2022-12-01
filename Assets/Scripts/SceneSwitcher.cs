@@ -49,15 +49,21 @@ public class SceneSwitcher : MonoBehaviour
     // Pause the game
     void PauseGame()
     {
+        if (songAS != null)
+        {
+            songAS.Pause();
+        }
         Time.timeScale = 0.0f;
-        AudioListener.pause = true;
     }
 
     // Unpause the game
     void UnpauseGame()
     {
+        if (songAS != null)
+        {
+            songAS.UnPause();
+        }
         Time.timeScale = 1.0f;
-        AudioListener.pause = false;
     }
     #endregion
 
@@ -137,10 +143,10 @@ public class SceneSwitcher : MonoBehaviour
         }
     }
 
-    // Whenever ESCAPE is pressed, open/close the menu
+    // Whenever TAB is pressed, open/close the menu
     void Update()
     {
-        if (Input.GetKeyDown("escape"))
+        if (Input.GetKeyDown("tab"))
         {
             if (menuIsOpen)
             {
