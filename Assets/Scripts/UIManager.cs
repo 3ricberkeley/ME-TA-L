@@ -23,7 +23,6 @@ public class UIManager : MonoBehaviour
     private float mostRecentHitTime = 0;
 
     [SerializeField]
-    private Text _healthText;
     private int health;
 
     [SerializeField]
@@ -32,19 +31,24 @@ public class UIManager : MonoBehaviour
     public GameObject burstBG;
     public Animator animator;
 
+    public GameObject healthBar;
+    public Slider slider;
+
     // Start is called before the first frame update
     void Start()
     {
         burstBG = GameObject.Find("burstBG");
         animator = burstBG.GetComponent<Animator>();
         _scoreText.text = "Score: " + 0;
+        healthBar = GameObject.Find("healthbar");
+        slider = healthBar.GetComponent<Slider>();
         health = 20;
-        _healthText.text = "Helth: " + health.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
+        slider.value = health;
         if (displayedTextBurst.text.Length > 0 && burstTimer > 0) {
             if (isKeyTyped(displayedTextBurst.text[0])) { 
                 displayedTextBurst.text = displayedTextBurst.text.Substring(1);
@@ -108,7 +112,6 @@ public class UIManager : MonoBehaviour
 
     public void reduceHealth(int amt) {
         health -= amt;
-        _healthText.text = "Helth: " + health.ToString();
         if (health <= 0) {
             Debug.Log("game over or smt idk");
             SceneSwitcher.FailSong();

@@ -850,8 +850,36 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a3f54db75fd1640e08527e6509424914, type: 3}
+    - target: {fileID: 742768231268133339, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6792453
+      objectReference: {fileID: 0}
+    - target: {fileID: 742768231268133339, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6792453
+      objectReference: {fileID: 0}
+    - target: {fileID: 742768231268133339, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6792453
+      objectReference: {fileID: 0}
+    - target: {fileID: 742768231728248433, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 702294e9b8cf6486ca2daa7553f3c972, type: 3}
+    - target: {fileID: 4010295859614682551, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010295859614682551, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4757193171366964294, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7408679354828160647, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
