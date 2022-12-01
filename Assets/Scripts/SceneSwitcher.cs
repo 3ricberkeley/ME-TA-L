@@ -96,9 +96,17 @@ public class SceneSwitcher : MonoBehaviour
         if (menuGO != null)
         {
             GameObject menuCanvas = menuGO.transform.GetChild(0).gameObject;
-            AudioSource currAS = GameObject.Find(SceneManager.GetActiveScene().name + "AS").GetComponent<AudioSource>();
-            menuCanvas.transform.GetChild(1).GetComponent<SceneSwitcher>().songAS = currAS;
-            menuCanvas.transform.GetChild(2).GetComponent<SceneSwitcher>().songAS = currAS;
+            if (SceneManager.GetActiveScene().name.Equals("Selection"))
+            {
+                AudioSource currAS = GameObject.Find("ClockStrikesAS").GetComponent<AudioSource>();
+                menuCanvas.transform.GetChild(1).GetComponent<SceneSwitcher>().songAS = currAS;
+                menuCanvas.transform.GetChild(2).GetComponent<SceneSwitcher>().songAS = currAS;
+            } else
+            {
+                AudioSource currAS = GameObject.Find(SceneManager.GetActiveScene().name + "AS").GetComponent<AudioSource>();
+                menuCanvas.transform.GetChild(1).GetComponent<SceneSwitcher>().songAS = currAS;
+                menuCanvas.transform.GetChild(2).GetComponent<SceneSwitcher>().songAS = currAS;
+            }
         }
 
         menuIsOpen = false;

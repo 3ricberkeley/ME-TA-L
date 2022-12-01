@@ -35,10 +35,10 @@ public class Song : MonoBehaviour
     #region Mapping_functions
     // Place a new note of [type] (hold --> duration) at [timePos] (miliseconds since some time position) in [lane]
     // Honestly, this function isn't really needed, we could move the body into the Start function
-    void PlaceNote(float timePos, int lane, string type)
-    {
-        noteQueue.Enqueue(new Note(timePos, lane, type));
-    }
+    // void PlaceNote(float timePos, int lane, string type)
+    // {
+    //     noteQueue.Enqueue(new Note(timePos, lane, type));
+    // }
 
     // Return the queue of notes
     public Queue<Note> GetNoteQueue()
@@ -77,7 +77,10 @@ public class Song : MonoBehaviour
         {
             musicAudio.Stop();
         }
-        musicAudio.Play();
+        if (musicAudio != null)
+        {
+            musicAudio.Play();
+        }
     }
 
     // Update is called once per frame

@@ -200,7 +200,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 325, y: 175}
+  m_AnchoredPosition: {x: 325, y: 125}
   m_SizeDelta: {x: 100, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &27087492
@@ -774,7 +774,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 130, y: 175}
+  m_AnchoredPosition: {x: 130, y: 125}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &614622106
@@ -1613,7 +1613,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -56
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7925733247060834834, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
 --- !u!1 &1670995021 stripped
 GameObject:
@@ -2320,7 +2321,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 325, y: 175}
+  m_AnchoredPosition: {x: 325, y: 125}
   m_SizeDelta: {x: 125, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2063278877
@@ -2423,6 +2424,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df72be6ba85fc7d4da1b21861c5f636b, type: 3}
+--- !u!1 &1927542833159905796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1927542834301848248, guid: df72be6ba85fc7d4da1b21861c5f636b, type: 3}
+  m_PrefabInstance: {fileID: 1927542833159905795}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8289121390809713183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2478,6 +2484,10 @@ PrefabInstance:
       propertyPath: isTutorial
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8289121391718318814, guid: 40394d89d5f15e642ad1a658e0b2e379, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 1927542833159905796}
     - target: {fileID: 8289121391718318815, guid: 40394d89d5f15e642ad1a658e0b2e379, type: 3}
       propertyPath: m_Name
       value: SaviorOfSongSong

@@ -1266,7 +1266,6 @@ GameObject:
   m_Component:
   - component: {fileID: 864480135261601242}
   - component: {fileID: 6052326758450156905}
-  - component: {fileID: 7925733247060834834}
   m_Layer: 0
   m_Name: healthbar
   m_TagString: Untagged
@@ -1347,29 +1346,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7925733247060834834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6160844783026219900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d51ce9df80e8d94d8832b0c3e465849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scoreText: {fileID: 0}
-  displayedTextBurst: {fileID: 0}
-  burstTimerText: {fileID: 0}
-  hqIndicatorText: {fileID: 0}
-  hqIndicatorDecay: 0
-  health: 0
-  comboText: {fileID: 0}
-  burstBG: {fileID: 0}
-  animator: {fileID: 0}
-  healthBar: {fileID: 0}
-  slider: {fileID: 0}
 --- !u!1 &6644323216614674022
 GameObject:
   m_ObjectHideFlags: 0

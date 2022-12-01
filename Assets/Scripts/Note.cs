@@ -18,12 +18,12 @@ public class Note {
 
     #region Note_functions
     // Note Constructor
-    public Note(float t, int l, string ty)
-    {
-        timePos = t;
-        lane = l;
-        type = ty;
-    }
+    // public Note(float t, int l, string ty)
+    // {
+    //     timePos = t;
+    //     lane = l;
+    //     type = ty;
+    // }
 
     public Note(string[] args) {
         timePos = (float)TimeSpan.Parse(args[0]).TotalSeconds;
