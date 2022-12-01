@@ -7,6 +7,7 @@ public class NoteBehavior : MonoBehaviour
 {
     private bool hit = false;
     internal float timeStamp { private get; set; }
+
     internal NoteSpawner noteSpawner { private get; set; }
 
     public virtual void onHit(UIManager UI) {

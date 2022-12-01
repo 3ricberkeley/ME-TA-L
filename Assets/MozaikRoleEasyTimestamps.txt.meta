@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 152e0503edb963a40a0d0a6e3ab6e2bd
+labels:
+- MozaikRoleEasy
 TextScriptImporter:
   externalObjects: {}
   userData: 
