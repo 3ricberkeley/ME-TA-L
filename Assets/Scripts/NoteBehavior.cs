@@ -18,7 +18,7 @@ public class NoteBehavior : MonoBehaviour
         UI.AddScore(Timings.bucketScore[timingBucket]);
         UI.displayHitQualityIndicator(timingBucket);
         if (timingBucket < Timings.bucketScore.Length - 1) UI.combo++;
-        if (gameObject.name.Equals("note(Clone)") || gameObject.name.Equals("burst(Clone)"))
+        if (gameObject.name.Equals("note(Clone)") || gameObject.name.Equals("textBurst(Clone)"))
         {
             Destroy(this.gameObject);
         }
@@ -42,7 +42,7 @@ public class NoteBehavior : MonoBehaviour
     }
 
     private int getTimingBucket() {
-        Debug.Log(noteSpawner);
+        // Debug.Log(noteSpawner);
         float diff = Math.Abs(noteSpawner.getSongPos() - timeStamp);
         int bucketIndex = 0;
         for (;bucketIndex < Timings.timingBuckets.Length; bucketIndex++) {
@@ -51,5 +51,10 @@ public class NoteBehavior : MonoBehaviour
             }
         }
         return bucketIndex;
+    }
+
+    public void Start()
+    {
+        noteSpawner = GameObject.Find("NoteSpawner").GetComponent<NoteSpawner>();
     }
 }
