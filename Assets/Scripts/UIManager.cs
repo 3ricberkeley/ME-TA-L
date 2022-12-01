@@ -113,7 +113,7 @@ public class UIManager : MonoBehaviour
     public void reduceHealth(int amt) {
         health -= amt;
         if (health <= 0) {
-            Debug.Log("game over or smt idk");
+            // Debug.Log("game over or smt idk");
             SceneSwitcher.FailSong();
         }
     }

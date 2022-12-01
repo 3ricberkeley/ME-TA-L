@@ -48,6 +48,7 @@ MonoBehaviour:
   gameCamera: {fileID: 0}
   notePrefab: {fileID: 1489405997892978048, guid: a98126adc688fb74ba99281b2f931e05, type: 3}
   burstNotePrefab: {fileID: 1489405997892978048, guid: 6792b4e8f8ddc3c4bb0bb21193fb06ae, type: 3}
+  holdNotePrefab: {fileID: 1489405997892978048, guid: d67014f1c77360647b7a93758de124d9, type: 3}
   songObject: {fileID: 0}
   hitboxes:
   - {fileID: 0}
@@ -68,3 +69,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 0}
+  songAS: {fileID: 0}

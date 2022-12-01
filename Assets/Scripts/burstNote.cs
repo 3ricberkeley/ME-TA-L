@@ -8,13 +8,13 @@ public class burstNote : NoteBehavior
     public float burstLength { get; set; }
     protected Animator burst_anim;
 
-    public void Start() {
+    public new void Start() {
         burst_anim = GameObject.Find("burstBG").GetComponent<Animator>();
     }
 
     public override void onHit(UIManager UI) {
         UI.textBurst(burstLength, text);
-        Debug.Log("bursting in");
+        // Debug.Log("bursting in");
         burst_anim.SetBool("burst", true);
         base.onHit(UI);
     }
