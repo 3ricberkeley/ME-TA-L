@@ -82,8 +82,8 @@ public class Tutorial : MonoBehaviour
             isPaused = true;
             noteType = type;
             ToggleMask(type, true);
+            audioSource.Pause();
             Time.timeScale = 0.0f;
-            AudioListener.pause = true;
         }
     }
 
@@ -126,8 +126,8 @@ public class Tutorial : MonoBehaviour
             // Debug.Log("KEY was pressed!");
             isPaused = false;
             ToggleMask(noteType, false);
+            audioSource.UnPause();
             Time.timeScale = 1.0f;
-            AudioListener.pause = false;
         }
     }
     #endregion
