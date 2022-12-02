@@ -55,7 +55,8 @@ public sealed class NoteSpawner : MonoBehaviour {
             if (note.GetNoteType().Equals("text")) {
                 spawnBurstNote(note);
             } else if (note.GetNoteType().Equals("hold")) {
-                spawnHoldNote(note);
+                // spawnHoldNote(note);
+                spawnRegularNote(note);
             } else {
                 spawnRegularNote(note);
             }
@@ -114,7 +115,7 @@ public sealed class NoteSpawner : MonoBehaviour {
         if (noteType.name.Replace("NotePrefab", "").Equals("hold"))
         {
             justSpawnedNote.GetComponent<HoldNote>().holdLength = note.GetHoldLength();
-            justSpawnedNote.GetComponent<HoldNote>().AdjustHold();
+            // justSpawnedNote.GetComponent<HoldNote>().AdjustHold();
         }
 
         justSpawnedNote.transform.position = spawnPositions[note.GetLane()];
