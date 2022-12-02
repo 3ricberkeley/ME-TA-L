@@ -77,7 +77,7 @@ public class Tutorial : MonoBehaviour
     // Pause the game within 0.015f of timestamp t
     void PauseGame(float t, string type)
     {
-        if (!isPaused && (Time.timeSinceLevelLoad >= t && Time.timeSinceLevelLoad < t + 0.0175f))
+        if (!isPaused && (Time.timeSinceLevelLoad >= t && Time.timeSinceLevelLoad < t + 0.02f))
         {
             isPaused = true;
             noteType = type;
