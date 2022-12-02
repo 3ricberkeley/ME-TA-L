@@ -77,7 +77,7 @@ public class Tutorial : MonoBehaviour
     // Pause the game within 0.015f of timestamp t
     void PauseGame(float t, string type)
     {
-        if (!isPaused && (Time.timeSinceLevelLoad >= t && Time.timeSinceLevelLoad < t + 0.015f))
+        if (!isPaused && (Time.timeSinceLevelLoad >= t && Time.timeSinceLevelLoad < t + 0.0175f))
         {
             isPaused = true;
             noteType = type;
@@ -112,8 +112,8 @@ public class Tutorial : MonoBehaviour
     void FixedUpdate()
     {
         //Debug.Log((Time.timeSinceLevelLoad).ToString());
-        PauseGame(2.76f + 7.0f, "normal");
-        PauseGame(12.66f + 7.0f, "hold");
+        PauseGame(2.66f + 7.0f, "normal");
+        PauseGame(12.56f + 7.0f, "hold");
         PauseGame(30.15f, "text");
         StartCoroutine(CompletedTutorial());
     }
