@@ -13,7 +13,6 @@ namespace Assets.Scripts {
         // static string[] paths = new string[] { "Assets" + Path.DirectorySeparatorChar + "clockStrikesTimestamps.txt" };
 
         public static Queue<Note> readNotes(string path) {
-
             string t = Resources.Load<TextAsset>(path).text;
             string[] timestampStrings = t.Split('\n');
             //string[] timestampStrings = File.ReadAllLines(path);

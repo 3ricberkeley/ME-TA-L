@@ -122,6 +122,7 @@ public sealed class NoteSpawner : MonoBehaviour {
         justSpawnedNote.GetComponent<Rigidbody2D>().velocity = Vector2.down * noteVelocity;
         justSpawnedNote.GetComponent<NoteBehavior>().timeStamp = note.GetTimePos();
         justSpawnedNote.GetComponent<NoteBehavior>().noteSpawner = this;
+        Debug.Log(justSpawnedNote);
         return justSpawnedNote;
     }
 
