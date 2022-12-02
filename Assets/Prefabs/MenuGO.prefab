@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 4460483222175614802}
-  audioSource: {fileID: 0}
+  songAS: {fileID: 0}
 --- !u!1 &4460483223755539652
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,4 +506,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 4460483222175614802}
-  audioSource: {fileID: 0}
+  songAS: {fileID: 0}

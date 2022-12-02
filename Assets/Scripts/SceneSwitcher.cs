@@ -102,7 +102,13 @@ public class SceneSwitcher : MonoBehaviour
                 currAS = GameObject.Find("ClockStrikesAS").GetComponent<AudioSource>();
             } else
             {
-                currAS = GameObject.Find(SceneManager.GetActiveScene().name + "AS").GetComponent<AudioSource>();
+                if (SceneManager.GetActiveScene().name.Equals("HowToPlay"))
+                {
+                    currAS = GameObject.Find("SaviorOfSongAS").GetComponent<AudioSource>();
+                } else
+                {
+                    currAS = GameObject.Find(SceneManager.GetActiveScene().name + "AS").GetComponent<AudioSource>();
+                }
             }
             menuCanvas.transform.GetChild(1).GetComponent<SceneSwitcher>().songAS = currAS;
             menuCanvas.transform.GetChild(2).GetComponent<SceneSwitcher>().songAS = currAS;
