@@ -15,6 +15,8 @@ public class NoteBehavior : MonoBehaviour
             return;
         }
         hit = true;
+        AudioSource hitAS = GameObject.Find("HitAS").GetComponent<AudioSource>();
+        hitAS.Play();
         UI.AddScore(Timings.bucketScore[timingBucket]);
         UI.displayHitQualityIndicator(timingBucket);
         if (timingBucket < Timings.bucketScore.Length - 1) UI.combo++;
