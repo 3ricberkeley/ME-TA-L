@@ -389,6 +389,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4010295859614682551, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010295859614682551, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
 --- !u!20 &927622238 stripped
@@ -857,6 +865,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClockStrikesSong
       objectReference: {fileID: 0}
+    - target: {fileID: 1172053422913212426, guid: d23183c778b9c7b448615c90f395defc, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 7361909844067042350}
     - target: {fileID: 1172053422913212427, guid: d23183c778b9c7b448615c90f395defc, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -963,5 +975,10 @@ PrefabInstance:
 --- !u!82 &7361909844067042349 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 7361909844835426862, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
+  m_PrefabInstance: {fileID: 7361909844067042348}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7361909844067042350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7361909844835426861, guid: 17e191b92908c2a41906da6418db42b1, type: 3}
   m_PrefabInstance: {fileID: 7361909844067042348}
   m_PrefabAsset: {fileID: 0}

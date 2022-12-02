@@ -835,6 +835,10 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 742768231268133337, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2250
+      objectReference: {fileID: 0}
+    - target: {fileID: 742768231268133337, guid: ec31ed982c8268b4d8c1c646138f2da8, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.42
       objectReference: {fileID: 0}

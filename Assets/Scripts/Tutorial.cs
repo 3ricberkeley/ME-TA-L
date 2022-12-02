@@ -90,7 +90,7 @@ public class Tutorial : MonoBehaviour
     // IEnumerator for the completed message and transition to the song selection scene
     IEnumerator CompletedTutorial()
     {
-        if (Time.timeSinceLevelLoad >= 33.0f && Time.timeSinceLevelLoad < 33.025f)
+        if (Time.timeSinceLevelLoad >= 35.0f && Time.timeSinceLevelLoad < 35.025f)
         {
             completed.gameObject.SetActive(true);
             yield return new WaitForSeconds(2.5f);
