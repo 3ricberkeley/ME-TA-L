@@ -8,6 +8,7 @@ public class NoteBehavior : MonoBehaviour
     private bool hit = false;
     internal float timeStamp { private get; set; }
     public NoteSpawner noteSpawner { private get; set; }
+    public AudioSource hitSound { private get; set; }
 
     public virtual void onHit(UIManager UI) {
         int timingBucket = getTimingBucket();
@@ -15,6 +16,7 @@ public class NoteBehavior : MonoBehaviour
             return;
         }
         hit = true;
+        hitSound.Play();
         UI.AddScore(Timings.bucketScore[timingBucket]);
         UI.displayHitQualityIndicator(timingBucket);
         if (timingBucket < Timings.bucketScore.Length - 1) UI.combo++;
@@ -56,5 +58,6 @@ public class NoteBehavior : MonoBehaviour
     public void Start()
     {
         noteSpawner = GameObject.Find("NoteSpawner").GetComponent<NoteSpawner>();
+        hitSound = GameObject.Find("HitSound").GetComponent<AudioSource>();
     }
 }
